@@ -1,0 +1,499 @@
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\ApplicationInsights.config
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\csc.exe
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\csc.exe.config
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\csc.rsp
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\csi.exe
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\csi.rsp
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\System.AppContext.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\System.Collections.Immutable.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\System.IO.FileSystem.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\System.Reflection.Metadata.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\vbc.exe
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\vbc.exe.config
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\vbc.rsp
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\VBCSCompiler.exe
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\roslyn\VBCSCompiler.exe.config
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\SMC-Api.dll.config
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\SMC-Api.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\SMC-Api.pdb
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Antlr3.Runtime.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\EntityFramework.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\EntityFramework.SqlServer.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.Agent.Intercept.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.DependencyCollector.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.Web.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.WindowsServer.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.ApplicationInsights.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Core.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Cors.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Cookies.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Facebook.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Google.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.OAuth.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Twitter.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Web.Infrastructure.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Newtonsoft.Json.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Owin.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Net.Http.Formatting.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Cors.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Helpers.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.Cors.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.Owin.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.WebHost.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Mvc.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Optimization.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Razor.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.WebPages.Deployment.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.WebPages.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.WebPages.Razor.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\WebGrease.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Cors.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Net.Http.Formatting.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.Cors.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Newtonsoft.Json.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Helpers.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.WebHost.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Mvc.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Optimization.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Razor.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.WebPages.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.WebPages.Deployment.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.WebPages.Razor.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Antlr3.Runtime.pdb
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\EntityFramework.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\EntityFramework.SqlServer.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Core.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Facebook.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Cookies.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.OAuth.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Google.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Twitter.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\System.Web.Http.Owin.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.ApplicationInsights.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.DependencyCollector.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.WindowsServer.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\bin\Microsoft.AI.Web.xml
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\obj\Debug\SMC-Api.dll
+F:\projects\AlMostakbal\SMC-Api\SMC-Api\obj\Debug\SMC-Api.pdb
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\obj\Debug\SMC-Api.csprojResolveAssemblyReference.cache
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\ApplicationInsights.config
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\csc.exe
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\csc.exe.config
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\csc.rsp
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\csi.exe
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\csi.rsp
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\System.AppContext.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\System.Collections.Immutable.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\System.IO.FileSystem.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\System.Reflection.Metadata.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\vbc.exe
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\vbc.exe.config
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\vbc.rsp
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\VBCSCompiler.exe
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\roslyn\VBCSCompiler.exe.config
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\SMC-Api.dll.config
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\SMC-Api.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\SMC-Api.pdb
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Antlr3.Runtime.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\AutoMapper.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.CrystalReports.Engine.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportSource.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.Shared.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\EntityFramework.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\EntityFramework.SqlServer.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.Agent.Intercept.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.DependencyCollector.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.Web.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.WindowsServer.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.ApplicationInsights.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Cors.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Google.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Web.Infrastructure.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Newtonsoft.Json.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Owin.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Net.Http.Formatting.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.ValueTuple.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Cors.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Helpers.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.Cors.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.Owin.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.WebHost.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Mvc.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Optimization.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Razor.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.WebPages.Deployment.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.WebPages.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.WebPages.Razor.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\WebGrease.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\stdole.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\AutoMapper.pdb
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\AutoMapper.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Cors.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Net.Http.Formatting.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.ValueTuple.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.Cors.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Newtonsoft.Json.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Helpers.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.WebHost.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Mvc.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Optimization.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Razor.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.WebPages.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.WebPages.Deployment.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.WebPages.Razor.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Antlr3.Runtime.pdb
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\EntityFramework.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\EntityFramework.SqlServer.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Google.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\System.Web.Http.Owin.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.ApplicationInsights.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.DependencyCollector.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.WindowsServer.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\bin\Microsoft.AI.Web.xml
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\obj\Debug\SMC-Api.dll
+F:\Sa3dlin\Github\SMC-Api\SMC-Api\obj\Debug\SMC-Api.pdb
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\obj\Debug\SMC-Api.csprojAssemblyReference.cache
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\obj\Debug\SMC-Api.csproj.CoreCompileInputs.cache
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\ApplicationInsights.config
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\csc.exe
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\csc.exe.config
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\csc.rsp
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\csi.exe
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\csi.rsp
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\System.AppContext.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\System.IO.FileSystem.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\vbc.exe
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\vbc.exe.config
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\vbc.rsp
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\VBCSCompiler.exe
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\SMC-Api.dll.config
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\SMC-Api.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\SMC-Api.pdb
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Antlr3.Runtime.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\AutoMapper.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportSource.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.Shared.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\EntityFramework.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\EntityFramework.SqlServer.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.DependencyCollector.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.Web.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.WindowsServer.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.ApplicationInsights.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Cors.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Facebook.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Google.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Twitter.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Newtonsoft.Json.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Owin.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Net.Http.Formatting.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.ValueTuple.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Cors.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Helpers.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.Cors.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.Owin.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.WebHost.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Mvc.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Optimization.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Razor.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.WebPages.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.WebPages.Razor.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\WebGrease.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\stdole.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\AutoMapper.pdb
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\AutoMapper.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Cors.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Net.Http.Formatting.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.ValueTuple.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.Cors.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Newtonsoft.Json.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Helpers.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.WebHost.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Mvc.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Optimization.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Razor.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.WebPages.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.WebPages.Razor.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Antlr3.Runtime.pdb
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\EntityFramework.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\EntityFramework.SqlServer.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\System.Web.Http.Owin.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.ApplicationInsights.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.DependencyCollector.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.WindowsServer.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\bin\Microsoft.AI.Web.xml
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\obj\Debug\SMC-Api.csproj.CopyComplete
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\obj\Debug\SMC-Api.dll
+E:\Projects\CloneGithub\SMC-Api\SMC-Api\obj\Debug\SMC-Api.pdb
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\ApplicationInsights.config
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\csc.exe
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\csc.exe.config
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\csc.rsp
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\csi.exe
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\csi.rsp
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\System.AppContext.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\System.Collections.Immutable.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\System.IO.FileSystem.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\System.Reflection.Metadata.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\vbc.exe
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\vbc.exe.config
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\vbc.rsp
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\VBCSCompiler.exe
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\roslyn\VBCSCompiler.exe.config
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\SMC-Api.dll.config
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\SMC-Api.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\SMC-Api.pdb
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Antlr3.Runtime.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\AutoMapper.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\EntityFramework.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\EntityFramework.SqlServer.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.Agent.Intercept.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.DependencyCollector.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.Web.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.WindowsServer.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.ApplicationInsights.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AspNet.Identity.Core.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Cors.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Cookies.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Facebook.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Google.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.OAuth.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Twitter.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Web.Infrastructure.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Newtonsoft.Json.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Owin.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Net.Http.Formatting.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.ValueTuple.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Cors.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Helpers.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.Cors.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.Owin.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.WebHost.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Mvc.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Optimization.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Razor.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.WebPages.Deployment.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.WebPages.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.WebPages.Razor.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\WebGrease.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\stdole.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\AutoMapper.pdb
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\AutoMapper.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Cors.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Net.Http.Formatting.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.ValueTuple.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.Cors.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Newtonsoft.Json.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Helpers.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.WebHost.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Mvc.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Optimization.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Razor.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.WebPages.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.WebPages.Deployment.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.WebPages.Razor.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Antlr3.Runtime.pdb
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\EntityFramework.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\EntityFramework.SqlServer.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AspNet.Identity.Core.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Facebook.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Cookies.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.OAuth.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Google.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.Twitter.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\System.Web.Http.Owin.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.ApplicationInsights.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.DependencyCollector.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.WindowsServer.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\bin\Microsoft.AI.Web.xml
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\obj\Debug\SMC-Api.csprojAssemblyReference.cache
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\obj\Debug\SMC-Api.csproj.CoreCompileInputs.cache
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\obj\Debug\SMC-Api.csproj.CopyComplete
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\obj\Debug\SMC-Api.dll
+D:\PharmacyBackEnd\PharmacyApi\New folder\New folder\SMC-Api-master\SMC-Api\obj\Debug\SMC-Api.pdb

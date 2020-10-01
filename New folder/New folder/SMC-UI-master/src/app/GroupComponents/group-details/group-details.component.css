@@ -1,0 +1,23 @@
+.btn{
+    background-color: #E67E22;
+    font-size: 20px;
+    font-family: bold;
+    color: #f5f5f5;
+}
+
+.btn:hover{
+    background-color: #2B7F9B;
+    color: #f5f5f5;
+}
+
+label{
+    font-weight: bold;
+
+}
+.ng-touched .ng-invalid-required {
+    border-color: red;
+}
+
+.ng-touched .ng-valid {
+    border-color: green;
+}

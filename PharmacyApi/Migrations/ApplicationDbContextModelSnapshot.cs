@@ -15,7 +15,7 @@ namespace PharmacyApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -228,6 +228,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("DescriptionAR")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -249,33 +252,15 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Country");
-                });
-
-            modelBuilder.Entity("PharmacyApi.Models.Customer", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telephone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("PharmacyApi.Models.Drug", b =>
@@ -291,29 +276,41 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Exp_Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("GenericName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsChecked")
+                        .HasColumnType("bit");
+
                     b.Property<string>("License")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrderID")
-                        .HasColumnType("int");
+                    b.Property<string>("Pack")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Pack")
+                    b.Property<DateTime>("Prod_Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quentity")
                         .HasColumnType("int");
 
                     b.Property<string>("ReOrderLevel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Strength")
-                        .HasColumnType("int");
+                    b.Property<string>("Strength")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TheraGroupID")
                         .HasColumnType("int");
@@ -340,8 +337,6 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("OrderID");
 
                     b.HasIndex("TheraGroupID");
 
@@ -373,6 +368,9 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("DrugInteractedID")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("SideEffects")
                         .HasColumnType("nvarchar(max)");
 
@@ -395,6 +393,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -412,6 +413,9 @@ namespace PharmacyApi.Migrations
 
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -449,6 +453,9 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("pharmacyID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("pledgeID")
+                        .HasColumnType("int");
+
                     b.Property<int>("supplierID")
                         .HasColumnType("int");
 
@@ -456,9 +463,45 @@ namespace PharmacyApi.Migrations
 
                     b.HasIndex("pharmacyDeliverdID");
 
+                    b.HasIndex("pledgeID");
+
                     b.HasIndex("supplierID");
 
                     b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("PharmacyApi.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Exp_Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("Prod_Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Quentity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("drugID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("drugID");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("PharmacyApi.Models.Pharmacy", b =>
@@ -474,6 +517,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -486,6 +532,36 @@ namespace PharmacyApi.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Pharmacy");
+                });
+
+            modelBuilder.Entity("PharmacyApi.Models.Pledge", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("telephone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Pledge");
                 });
 
             modelBuilder.Entity("PharmacyApi.Models.PurchasedItem", b =>
@@ -535,6 +611,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -555,6 +634,9 @@ namespace PharmacyApi.Migrations
 
                     b.Property<string>("DescriptionAR")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -620,6 +702,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -637,6 +722,9 @@ namespace PharmacyApi.Migrations
 
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -663,6 +751,9 @@ namespace PharmacyApi.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -725,10 +816,6 @@ namespace PharmacyApi.Migrations
 
             modelBuilder.Entity("PharmacyApi.Models.Drug", b =>
                 {
-                    b.HasOne("PharmacyApi.Models.Order", null)
-                        .WithMany("Drugs")
-                        .HasForeignKey("OrderID");
-
                     b.HasOne("PharmacyApi.Models.TheraGroup", null)
                         .WithMany("Drugs")
                         .HasForeignKey("TheraGroupID");
@@ -793,9 +880,28 @@ namespace PharmacyApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("PharmacyApi.Models.Pledge", "Pledge")
+                        .WithMany("orders")
+                        .HasForeignKey("pledgeID");
+
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()
                         .HasForeignKey("supplierID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PharmacyApi.Models.OrderDetail", b =>
+                {
+                    b.HasOne("PharmacyApi.Models.Order", "order")
+                        .WithMany("orderDetailList")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PharmacyApi.Models.Drug", "drug")
+                        .WithMany()
+                        .HasForeignKey("drugID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -809,7 +915,7 @@ namespace PharmacyApi.Migrations
                         .IsRequired();
 
                     b.HasOne("PharmacyApi.Models.Order", "Order")
-                        .WithMany("PurchasedItems")
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

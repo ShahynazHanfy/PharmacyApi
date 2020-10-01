@@ -1,0 +1,127 @@
+<div class="p-2">
+<div class="card">
+ 
+  <div class="container">
+    <br>
+  <form  id="SaveCustomer" #SaveCustomer="ngForm" (ngSubmit)="SubmitData()">
+    <div class="ui-g ui-field ui-md-12">
+   
+      <div class="form-group ui-md-3">
+        <label>{{'supplierData.companyName' | translate}}</label>     
+         <input type="text" class="form-control" #CompanyName="ngModel" name="Name" id="Name"
+          [(ngModel)]="customer.CompanyName" required
+          [ngClass]="{'ng-invalid-required' : CompanyName.touched && CompanyName.invalid}">
+          <div *ngIf="CompanyName.invalid">
+            <div *ngIf="CompanyName.errors.required && (CompanyName.dirty || CompanyName.touched)" 
+            class="text-danger" style="margin-top: 5px;">
+              Please fill out this field !</div>
+          </div>
+    </div>
+    
+    <div class="form-group ui-md-3">   
+      <label class="control-label">{{'supplierData.contactPerson' | translate}}</label>
+      <input type="text" #ContactPerson="ngModel" name="ContactPerson" id="ContactPerson" 
+      class="form-control" [(ngModel)]="customer.ContactPerson" required
+      [ngClass]="{'ng-invalid-required' : ContactPerson.touched && ContactPerson.invalid}">
+      <div *ngIf="ContactPerson.invalid">
+        <div *ngIf="ContactPerson.errors.required && (ContactPerson.dirty || ContactPerson.touched)" 
+        class="text-danger" style="margin-top: 5px;">
+          Please fill out this field !</div>
+      </div>
+    </div> 
+
+    <div class="form-group ui-md-3">   
+      <label class="control-label">{{'supplierData.email' | translate}}</label>
+      <input type="email" #Email="ngModel" name="Email" id="Email" 
+      class="form-control" [(ngModel)]="customer.Email" required
+      [ngClass]="{'ng-invalid-required' : Email.touched && Email.invalid}">
+      <div *ngIf="Email.invalid">
+        <div *ngIf="Email.errors.required && (Email.dirty || Email.touched)" 
+        class="text-danger" style="margin-top: 5px;">
+          Please fill out this field !</div>
+      </div>
+    </div>   
+
+    <div class="form-group ui-md-3">   
+      <label class="control-label">{{'supplierData.telephone' | translate}}</label>
+      <input type="text" #telephone="ngModel" name="telephone" id="telephone" 
+      class="form-control" [(ngModel)]="customer.Telephone" required
+      [ngClass]="{'ng-invalid-required' : telephone.touched && telephone.invalid}">
+      <div *ngIf="telephone.invalid">
+        <div *ngIf="telephone.errors.required && (telephone.dirty || telephone.touched)" 
+        class="text-danger" style="margin-top: 5px;">
+          Please fill out this field !</div>
+      </div>
+    </div>
+
+    <div class="form-group ui-md-3">
+      <label>{{'supplierData.city' | translate}}</label>     
+       <input type="text" class="form-control" #City="ngModel" name="City" id="City"
+        [(ngModel)]="customer.City" required>
+       
+    </div>  
+
+<div class="form-group ui-md-5">   
+  <label class="control-label">{{'supplierData.address' | translate}}</label>
+  <input type="text" #Address="ngModel" name="Address" id="Address" 
+  class="form-control" [(ngModel)]="customer.Address" required
+  [ngClass]="{'ng-invalid-required' : Address.touched && Address.invalid}">
+  <div *ngIf="Address.invalid">
+        <div *ngIf="Address.errors.required && (Address.dirty || Address.touched)" 
+        class="text-danger" style="margin-top: 5px;">
+          Please fill out this field !</div>
+  </div>
+</div>
+
+<div class="form-group ui-md-4">   
+  <label class="control-label">{{'supplierData.fieldOfWork' | translate}}</label>
+  <input type="text" #FieldOfWork="ngModel" name="FieldOfWork" id="FieldOfWork" 
+  class="form-control" [(ngModel)]="customer.FieldOfWork" >
+  </div>
+
+<div class="form-group ui-md-2">   
+  <label class="control-label">{{'supplierData.category' | translate}}</label>
+  <input type="text" #Category="ngModel" name="Category" id="Category" 
+  class="form-control" [(ngModel)]="customer.Category">
+
+</div>
+<div class="form-group ui-md-5">   
+  <label class="control-label">{{'supplierData.taxCertificate' | translate}}</label>
+  <input type="text" #TaxCertificate="ngModel" name="TaxCertificate" id="TaxCertificate" 
+  class="form-control" [(ngModel)]="customer.TaxCertificate"> 
+</div>
+
+<div class="form-group ui-md-5">   
+  <label class="control-label">{{'supplierData.commercialRegistration' | translate}}</label>
+  <input type="text" #CommercialRegistration="ngModel" name="CommercialRegistration" id="CommercialRegistration" 
+  class="form-control" [(ngModel)]="customer.CommercialRegistration" >
+</div>
+
+<div class="form-group ui-md-12">   
+  <label class="control-label">{{'supplierData.advantages' | translate}}</label>
+  <textarea type="text" rows="3" #Advantages="ngModel" name="Advantages" id="Advantages" 
+  class="form-control" [(ngModel)]="customer.Advantages"></textarea>
+</div>
+
+      <div class="form-group ui-md-1">
+          <label>{{'supplierData.active' | translate}}</label>   
+           <input type="checkbox" class="form-control" #IsActive="ngModel"  name="IsActive" id="IsActive"
+            [(ngModel)]="customer.IsActive" required
+            [ngClass]="{'ng-invalid-required' : IsActive.touched && IsActive.invalid}">
+            <div *ngIf="IsActive.invalid">
+              <div *ngIf="IsActive.errors.required && (IsActive.dirty || IsActive.touched)" 
+              class="text-danger" style="margin-top: 5px;">
+                Please fill out this field !</div>
+        </div>
+        </div>
+  <br>
+  
+  <div class="form-group ui-md-12">
+    <button type="submit" class="btn btn-block" [disabled]="!IsSuperAdmin || SaveCustomer.invalid" >{{'buttons.save' | translate}}</button>
+  </div>
+</div>
+   
+  </form> <!-- End Form  -->
+  </div><!-- End Container  -->
+</div>
+</div>

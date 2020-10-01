@@ -1,0 +1,142 @@
+<div class="p-2">
+<p-table #dt [value]="types"  dataKey="id" styleClass="ui-table-trancationtypes" [rowHover]="true"
+    [rows]="5"  [rowsPerPageOptions]="[5,10,15]" [loading]="loading"
+    [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [filterDelay]="0" [globalFilterFields]="['name']">
+    <ng-template pTemplate="caption">
+        <div class="row">
+        <button type="button" style="margin-left: 8px;" class="btn"
+        [disabled]="AuthorizedToAdd == false" (click)="DisplayDetailsDialog(0)">
+            <i class="fa fa-plus fa-lg"></i>{{'buttons.createNewType' | translate}}</button>
+          
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="Name">{{'type.name' | translate}} <p-sortIcon field="Name"></p-sortIcon></th>
+            <th pSortableColumn="NameAr">{{'type.nameAr' | translate}} <p-sortIcon field="NameAr"></p-sortIcon></th>
+            <th pSortableColumn="ProcessType">{{'type.processtype' | translate}}</th>
+            <th></th>
+        </tr>
+        <tr>      
+            <th>
+                <input type="text" class="form-control"
+                 (input)="dt.filter($event.target.value, 'Name', 'startsWith')" 
+                placeholder="Search by Name" >
+            </th>
+            <th>
+                <input class="form-control" type="text" 
+                (input)="dt.filter($event.target.value, 'NameAr', 'startsWith')" 
+                placeholder="Search by Name Ar" >
+            </th>
+            <th>
+              <select class="form-control"  id="processtype" #type="ngModel"
+              [(ngModel)]="filterType" name="processtype" 
+       (ngModelChange)="onProcessTypeChange($event)">
+<option *ngFor="let t of processtypes" [value]="t.value" >{{t.name}}</option>
+      </select>
+               
+            </th>
+           
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-trancationtype>
+        <tr class="ui-selectable-row">
+           
+            <td>
+                <span class="ui-column-title"> {{trancationtype.Name}}</span>
+            </td>
+            <td>
+              <span class="ui-column-title"> {{trancationtype.NameAr}}</span>
+          </td>
+          <td>
+            <span class="ui-column-title"> {{trancationtype.ProcessType == true ? 'Plus' : 'Minus'}}</span>
+        </td>
+           
+            <td>
+                <button class="ui-button btn Btn-icons" [disabled]="AuthorizedToEdit == false" 
+                style="margin-right: 20px;" (click)="DisplayDetailsDialog(trancationtype.ID)">
+                <i class="fa fa-pencil"></i>
+            </button>
+                <button class="ui-button btn Btn-icons" [disabled]="AuthorizedToRemove == false" 
+                (click)="DeleteType(trancationtype.ID)">
+            <i class="fa fa-trash"></i></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td colspan="8" style="text-align:left">No trancationtypes found.</td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-dialog header="{{'nav.ordertype' | translate}}" 
+[visible]="display" [style]="{width: '50vw'}" [baseZIndex]="10000">
+<form id="SaveType" #SaveType="ngForm" (ngSubmit)="SubmitData()">
+    <div class="ui-g ui-field ui-md-12">
+
+      <div class="form-group ui-md-6">
+        <label>{{'type.name' | translate}}</label>     
+         <input type="text" class="form-control" #Name="ngModel" name="Name" id="Name"
+          [(ngModel)]="type.Name" [readonly]="Editing" required
+          [ngClass]="{'ng-invalid-required' : Name.touched && Name.invalid}"> 
+          <div *ngIf="Name.invalid">
+            <div *ngIf="Name.errors.required && (Name.dirty || Name.touched)" 
+            class="text-danger" style="margin-top: 5px;">
+              Please fill out this field !</div>
+          </div>
+    </div>
+    <div class="form-group ui-md-6">
+        <label>{{'type.nameAr' | translate}}</label>     
+         <input type="text" [readonly]="Editing" class="form-control"
+          #NameAr="ngModel" name="NameAr" id="NameAr" [(ngModel)]="type.NameAr" required
+          [ngClass]="{'ng-invalid-required' : NameAr.touched && NameAr.invalid}">
+          <div *ngIf="NameAr.invalid">
+            <div *ngIf="NameAr.errors.required && (NameAr.dirty || NameAr.touched)" 
+            class="text-danger" style="margin-top: 5px;">
+              Please fill out this field !</div>
+          </div>
+    </div>
+    <div class="form-group ui-md-12">
+        <label >{{'type.processtype' | translate}}</label>
+        <br>
+  
+        <div class="form-group ui-md-6">
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" #processtype="ngModel" id="plus" [value]="true" name="processtype"
+            [disabled]="Editing" class="custom-control-input"  [(ngModel)]="type.ProcessType" required
+            [ngClass]="{'ng-invalid-required' :  processtype.invalid}">
+            <label for="plus" class="custom-control-label">{{'type.plus' | translate}}</label>
+          </div> 
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" #processtype="ngModel" id="minus" [value]="false" name="processtype"
+            [disabled]="Editing" class="custom-control-input" [(ngModel)]="type.ProcessType" required
+            [ngClass]="{'ng-invalid-required' :  processtype.invalid}">
+            <label for="minus" class="custom-control-label" >{{'type.minus' | translate}}</label>
+          </div>
+          <div *ngIf="processtype.invalid">
+            <div *ngIf="processtype.errors.required" 
+            class="text-danger" style="margin-top: 5px;">
+              Please fill out this field !</div>
+          </div>
+        </div>
+        <div class="form-group ui-md-1">
+            <label>{{'type.active' | translate}}</label>   
+             <input type="checkbox" class="form-control" #IsActive="ngModel"  name="IsActive" id="IsActive"
+              [(ngModel)]="type.IsActive">
+          </div>
+          </div>
+    <br>
+</div>
+   
+  </form> <!-- End Form  -->
+<p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="SubmitData()"
+     label="{{'buttons.save' | translate}}" [disabled]="SaveType.invalid"></button>
+    <button type="button" pButton icon="pi pi-times" (click)="display=false" 
+     label="{{'buttons.cancel' | translate}}" class="ui-button-secondary"></button>
+</p-footer>
+</p-dialog>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+</div>

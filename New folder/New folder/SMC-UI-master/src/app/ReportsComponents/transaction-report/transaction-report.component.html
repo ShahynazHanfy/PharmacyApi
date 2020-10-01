@@ -1,0 +1,115 @@
+<div class="p-3">
+<p-accordion [multiple]="true">
+  <p-accordionTab header="{{'reports.inventoryOrders' | translate}}">
+    <form id="TransactionReport" #TransactionReport="ngForm" (ngSubmit)="DownloadTransactionsReport()" class="bg-light">
+      <div class="container">
+        <div class="ui-g ui-field ui-md-12">
+    
+          <div  class="form-group ui-md-12">
+            <!-- <label *ngFor="let t of types" class="checkbox-inline" style="width: 200px;">
+              <input type="checkbox" name="type" #type="ngModel"
+               [ngModel]="report.TransactionTypes" value="t.ID">{{t.Name}}</label> -->
+            <div class="form-group ui-md-12">
+              <div *ngFor="let t of types" class="ui-md-3">
+                <p-checkbox name="type" class="inline" [value]="t.ID" [label]="t.Name" 
+                [(ngModel)]="report.Types"></p-checkbox></div>
+          </div>
+          </div>
+    
+          <div *ngIf="displayStores" class="form-group ui-md-4">
+            <label><b>{{'reports.store' | translate}}</b></label>
+            <select class="form-control" required id="store" #store="ngModel" name="store" 
+            [(ngModel)]="report.StoreId">
+          <option *ngFor="let s of stores" [value]="s.ID" required>{{s.Name}}</option>
+            </select>
+          </div>
+    
+        <div class="form-group ui-md-4">
+        <label for="lname"><b>{{'reports.fromOrder' | translate}}</b></label>
+        <input type="date" name="fromOrder" class="form-control"
+        #fromOrder="ngModel" [(ngModel)]="report.fromOrder" required>
+        </div>
+    
+        <div class="form-group ui-md-4">
+          <label for="lname"><b>{{'reports.toOrder' | translate}}</b></label>
+          <input type="date" name="toOrder" class="form-control"
+          #toOrder="ngModel" [(ngModel)]="report.toOrder" required>
+          </div>
+    
+    <br>
+        <button type="submit" class="btn">{{'buttons.download' | translate}}</button>
+    </div>
+      </div>
+    </form>
+     </p-accordionTab>
+  <p-accordionTab header="{{'reports.expireditemswithinspecificperiod' | translate}}">
+  <div class="ui-g ui-field ui-md-12">
+    <div class="form-group ui-md-12">
+      <label for="period"><b>{{'reports.period' | translate}}  ({{'reports.days' | translate}})</b></label>
+      <input type="number" name="period" class="form-control"
+      #period="ngModel" [(ngModel)]="NumberOfDays" required>
+      </div>
+      <div class=" ui-md-12">
+        <button class="btn" (click)="DownloadExpiredItems()">
+          {{'buttons.download' | translate}}
+      </button>
+        </div>
+      </div>
+   </p-accordionTab>
+   <p-accordionTab header="{{'reports.reorderitemswithinspecificperiod' | translate}}">
+    <div class="ui-g ui-field">
+      
+      <div class="ui-md-6" *ngIf="IsSuperAdmin">
+        <label><b>{{'reports.role' | translate}}</b></label>
+        <br>
+      <div class="custom-control custom-radio custom-control-inline">
+        <p-radioButton name="CalculateReorderItemsFor" value="AllStores" 
+        (click)="ChangeReorderReportOption('AllStores')"
+         [(ngModel)]="ReorderReportOption" label="For All Stores"></p-radioButton>
+      </div> 
+      <div  class="custom-control custom-radio custom-control-inline">
+        <p-radioButton name="CalculateReorderItemsFor" value="OneStore" 
+        (click)="ChangeReorderReportOption('OneStore')" [(ngModel)]="ReorderReportOption"
+        label="For One Store"></p-radioButton>
+      </div> 
+      </div>
+      <div class="ui-md-6" *ngIf="displayStores" >
+        <label><b>{{'reports.store' | translate}}</b></label>
+        <select class="form-control" required id="store" #store="ngModel" name="store" 
+        [(ngModel)]="StoreIdForReorderReport">
+      <option *ngFor="let s of stores" [value]="s.ID" required>{{s.Name}}</option>
+        </select>
+      </div>
+      <div class=" ui-md-12">
+          <button class="btn" (click)="DownloadReorderedItems()">
+            {{'buttons.download' | translate}}
+        </button>
+          </div>
+        </div>
+     </p-accordionTab>
+     <p-accordionTab header="{{'reports.topTenItems' | translate}}">
+
+     </p-accordionTab>
+     <p-accordionTab header="{{'reports.leastTenItems' | translate}}">
+
+    </p-accordionTab>
+    <p-accordionTab header="{{'reports.topTenSuppliers' | translate}}">
+      <div class="ui-g ui-field ui-md-12">
+        <div class="form-group ui-md-12">
+          <label><b>{{'reports.item' | translate}}</b></label>
+        <select class="form-control" required id="item" #item="ngModel" name="item" 
+        [(ngModel)]="ItemForSupplierReport">
+      <option *ngFor="let i of items" [value]="i.ID" required>{{i.Name}}</option>
+        </select>
+          </div>
+          <div class=" ui-md-12">
+            <button class="btn" (click)="DownloadExpiredItems()">
+              {{'buttons.download' | translate}}
+          </button>
+            </div>
+          </div>
+    </p-accordionTab>
+  
+</p-accordion>
+</div>
+

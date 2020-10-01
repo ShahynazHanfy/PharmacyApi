@@ -16,6 +16,7 @@ namespace PharmacyApi.Models
 
         public string Code { get; set; }
 
+        public bool IsActive { get; set; }
 
         public List<Drug> Drugs { get; set; }
 

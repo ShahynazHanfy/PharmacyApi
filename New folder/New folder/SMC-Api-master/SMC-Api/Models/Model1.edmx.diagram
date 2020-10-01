@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8a6b604ff7884162b9caf6b193ff84d6" Name="Diagram1">
+        <EntityTypeShape EntityType="SMC_DBModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Balance" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Group" Width="1.5" PointX="1.5" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Item" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.ItemBalance" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Role" Width="1.5" PointX="2.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Store" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Subgroup" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.Supplier" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.User" Width="1.5" PointX="5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.UserClaim" Width="1.5" PointX="7.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMC_DBModel.UserLogin" Width="1.5" PointX="7.25" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="SMC_DBModel.FK_Balance_Store" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_BalanceDetials_Balance" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_SubGroup_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_BalanceDetials_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_Item_Subgroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_OrderDetails_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_dbo_UserClaim_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.FK_dbo_UserLogin_dbo_User_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="SMC_DBModel.UserRole" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SMC_DBModel.Customer" Width="1.5" PointX="9.375" PointY="6" />
+        <EntityTypeShape EntityType="SMC_DBModel.Employee" Width="1.5" PointX="7.625" PointY="15.625" />
+        <EntityTypeShape EntityType="SMC_DBModel.OrderType" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="SMC_DBModel.Order" Width="1.5" PointX="11.625" PointY="6.625" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_Customer" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_Employee" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_Store" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_Store1" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_Store2" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_Supplier" />
+        <AssociationConnector Association="SMC_DBModel.FK_Order_TransactionType" />
+        <AssociationConnector Association="SMC_DBModel.FK_OrderDetails_Order" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

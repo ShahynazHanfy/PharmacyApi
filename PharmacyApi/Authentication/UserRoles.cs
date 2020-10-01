@@ -9,5 +9,9 @@ namespace PharmacyApi.Authentication
     {
             public const string Admin = "Admin";
             public const string User = "User";
+            public const string Clerk = "Clerk";
+            public const string DataEntry = "DataEntry";
+
+
     }
 }

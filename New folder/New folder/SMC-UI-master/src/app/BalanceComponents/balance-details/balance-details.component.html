@@ -1,0 +1,111 @@
+<div class="p-2">
+<div class="card">
+ 
+  <div class="container">
+    <br>
+  <form  id="BalanceData" #BalanceData="ngForm" (ngSubmit)="CalculateBalance()">
+    <div class="ui-g ui-fluid">
+    <div class="form-group ui-md-6">
+      <label>{{'balanceData.store' | translate}}</label>
+      <select class="form-control"  id="store" #store="ngModel" name="store" 
+      [(ngModel)]="balance.StoreId" [ngClass]="{'ng-invalid-required' : store.touched && store.invalid}">
+      <option *ngFor="let s of stores" [value]="s.ID"
+      disabled="{{s.ID == CurrentUserstore || CurrentUserstore == 0 ? '' : true }}">{{s.Name}}</option>
+      </select>
+      <div *ngIf="store.invalid">
+        <div *ngIf="store.errors.required && (store.dirty || store.touched)" class="text-danger"
+          style="margin-top: 5px;">
+          Please fill out this field !</div>
+      </div>
+    </div>
+    <div class="form-group ui-md-6">   
+      <label class="control-label">{{'balanceData.balanceDate' | translate}}</label>
+      <input type="date" #balanceDate="ngModel" name="balanceDate" id="balanceDate" 
+      class="form-control" [(ngModel)]="balance.BalanceDate" required
+      [ngClass]="{'ng-invalid-required' : balanceDate.touched && balanceDate.invalid}">
+      <div *ngIf="balanceDate.invalid">
+        <div *ngIf="balanceDate.errors.required && (balanceDate.dirty || balanceDate.touched)" 
+        class="text-danger" style="margin-top: 5px;">
+          Please fill out this field !</div>
+      </div> 
+    </div>
+     
+  <br>
+  <div class="form-group ui-md-4">
+    <button type="submit" class="btn btn-block" 
+    [disabled]="BalanceData.invalid">{{'buttons.save' | translate}}</button>
+  </div>
+</div>
+  </form>
+ 
+<p-table #dt [value]="balance.itemList"  dataKey="id" styleClass="ui-table-items" [rowHover]="true"
+[rows]="5"  [rowsPerPageOptions]="[5,10,15]" [loading]="loading"
+[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[filterDelay]="0" >
+<ng-template pTemplate="header">
+    <tr>
+        <th pSortableColumn="Name">{{'itemData.name' | translate}}
+           <p-sortIcon field="Name"></p-sortIcon></th>
+        <th pSortableColumn="Group">{{'itemData.group' | translate}}
+           <p-sortIcon field="Group"></p-sortIcon></th>
+        <th pSortableColumn="Sub Group">{{'itemData.subGroup' | translate}} 
+          <p-sortIcon field="Sub Group"></p-sortIcon></th>
+        <th pSortableColumn="Quantity">{{'itemData.quantity' | translate}}</th>
+    </tr>
+    <tr>      
+        <th>
+            <input type="text" class="form-control"
+             (input)="dt.filter($event.target.value, 'Name', 'startsWith')" 
+            placeholder="Search by Name" >
+        </th>
+        <th>
+          <select class="form-control"  id="group" #group="ngModel"
+          [(ngModel)]="filterGroup" name="group" 
+          (ngModelChange)="onSelectGroup($event)">
+          <!-- <option [value]="0">{{'itemData.allgroups' | translate}}</option> -->
+          <option *ngFor="let g of groups" [value]="g.ID" >{{g.Name}}</option>
+          </select>
+           
+      </th>
+        <th>
+          <select class="form-control"  id="subgroup" #subgroup="ngModel"
+          [(ngModel)]="filterSubgroup" name="subgroup" 
+          (ngModelChange)="onSelectSubgroup($event)">
+          <!-- <option [value]="0">{{'itemData.allsubgroups' | translate}}</option> -->
+          <option *ngFor="let s of subgroups" [value]="s.ID" >{{s.Name}}</option>
+          </select>
+        </th>
+        <th>
+          <input class="form-control" type="number" 
+          (input)="dt.filter($event.target.value, 'Quantity', 'startsWith')" 
+          placeholder="Search by Sub Group" >
+        </th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-itemBalance>
+    <tr class="ui-selectable-row">
+       
+        <td>
+            <span class="ui-column-title"> {{itemBalance.Item.Name}}</span>
+        </td>
+        <td>
+          <span class="ui-column-title"> {{itemBalance.Item.Subgroup.Group.Name}}</span>
+      </td>
+      <td>
+        <span class="ui-column-title"> {{itemBalance.Item.Subgroup.Name}}</span>
+    </td>
+      <td>
+        <span class="ui-column-title"> {{itemBalance.Quantity}}</span>
+    </td>
+    </tr>
+</ng-template>
+<ng-template pTemplate="emptymessage">
+    <tr>
+        <td colspan="8" style="text-align:left">No trancationtypes found.</td>
+    </tr>
+</ng-template>
+</p-table>
+<br>
+  </div>
+</div>
+</div>

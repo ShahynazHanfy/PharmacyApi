@@ -1,0 +1,190 @@
+<div class="p-2">
+<p-card>
+  <div>
+  <form  id="SaveOrder" #SaveOrder="ngForm" (ngSubmit)="SubmitData()">
+   <div class="ui-g ui-fluid">
+      <div class="form-group ui-md-12">
+        <div *ngFor="let t of types" class="custom-control custom-radio custom-control-inline col-2">
+          <input type="radio" class="custom-control-input" [value]="t.ID" #processtype="ngModel"
+          [(ngModel)]="order.typeId" [id]="t.Name" name="processtype" required
+          [ngClass]="{'ng-invalid-required' :  processtype.invalid}">
+          <label class="custom-control-label" [for]="t.Name" (click)="OnChangeType(t)">
+            {{translate.currentLang == 'en' ?  t.Name : t.NameAr }}</label>
+        </div>
+        <!-- <div *ngIf="processtype.invalid">
+          <div *ngIf="processtype.errors.required" 
+          class="text-danger" style="margin-top: 5px;">
+            Please fill out this field !</div>
+        </div> -->
+      </div>
+      <div class="form-group ui-md-4">
+        <label><b>{{'orderData.orderDate' | translate}}</b></label>
+        <div class="input-group date" data-provide="datepicker">
+          <input type="date" class="form-control datepicker" 
+          #orderDate="ngModel" name="orderDate" required 
+          id="orderDate" [(ngModel)]="order.OrderDate"
+          [ngClass]="{'ng-invalid-required' : orderDate.touched &&  orderDate.invalid}">
+          <div class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </div>
+      </div>
+      <div *ngIf="orderDate.invalid">
+        <div *ngIf="orderDate.errors.required && (orderDate.dirty || orderDate.touched)" 
+        class="text-danger" style="margin-top: 5px;">
+          Please fill out this field !</div>
+      </div>
+      </div>
+      <div class="form-group ui-md-4">
+        <label><b>{{'orderData.orderNumber' | translate}}</b></label>
+        <input type="number" #Number="ngModel" name="Number" id="Number" class="form-control"
+         [(ngModel)]="order.OrderNumber" required
+         [ngClass]="{'ng-invalid-required' : Number.touched &&  Number.invalid}">
+         <div *ngIf="Number.invalid">
+          <div *ngIf="Number.errors.required && (Number.dirty || Number.touched)" 
+          class="text-danger" style="margin-top: 5px;">
+            Please fill out this field !</div>
+        </div>
+      </div>
+      <div *ngIf="DisplaySuppliers" class="form-group ui-md-4">
+        <label><b>{{'orderData.supplier' | translate}}</b></label>
+        <select class="form-control"  id="supplier" #supplier="ngModel" name="supplier" 
+        [(ngModel)]="order.SupplierId" [required]="DisplaySuppliers"
+        [ngClass]="{'ng-invalid-required' :  supplier.invalid}">
+      <option *ngFor="let s of suppliers" [value]="s.ID">{{s.CompanyName}}</option>
+        </select>
+        <div *ngIf="supplier.invalid && DisplaySuppliers" >
+          <div *ngIf="supplier.errors.required" 
+          class="text-danger" style="margin-top: 5px;">
+            Please fill out this field !</div>
+        </div>
+      </div>
+      <div *ngIf="DisplayCustomers" class="form-group ui-md-4">
+        <label><b>{{'orderData.customer' | translate}}</b></label>
+        <select class="form-control"  id="customer" #customer="ngModel" name="customer" 
+        [(ngModel)]="order.CustomerId" [required]="DisplayCustomers"
+        [ngClass]="{'ng-invalid-required' :  customer.invalid}">
+      <option *ngFor="let c of customers" [value]="c.ID" >{{c.CompanyName}}</option>
+        </select>
+        <div *ngIf="customer.invalid && DisplayCustomers" >
+          <div *ngIf="customer.errors.required" 
+          class="text-danger" style="margin-top: 5px;">
+            Please fill out this field !</div>
+        </div>
+      </div>
+      <div *ngIf="DisplayStores" class="form-group ui-md-4">
+        <label><b>{{'orderData.store' | translate}}</b></label>
+        <select class="form-control"  id="DeliveredToStore" #DeliveredToStore="ngModel"
+         name="DeliveredToStore"  [(ngModel)]="order.DeliveredToStore" [required]="DisplayStores"
+         [ngClass]="{'ng-invalid-required' :  DeliveredToStore.invalid}">
+      <option *ngFor="let s of stores" [value]="s.ID" >{{s.Name}}</option>
+        </select>
+        <div *ngIf="DeliveredToStore.invalid && DisplayStores" >
+          <div *ngIf="DeliveredToStore.errors.required" 
+          class="text-danger" style="margin-top: 5px;">
+            Please fill out this field !</div>
+        </div>
+      </div>
+      <div *ngIf="DisplayEmployees" class="form-group ui-md-4">
+        <label><b>{{'orderData.employee' | translate}}</b></label>
+        <select class="form-control"  id="Employee" #Employee="ngModel"
+         name="Employee"  [(ngModel)]="order.EmployeeId" [required]="DisplayEmployees"
+         [ngClass]="{'ng-invalid-required' :  Employee.invalid}">
+      <option *ngFor="let e of employees" [value]="e.ID" >{{e.Name}} - {{e.Department}}</option>
+        </select>
+        <div *ngIf="Employee.invalid && DisplayEmployees" >
+          <div *ngIf="Employee.errors.required" 
+          class="text-danger" style="margin-top: 5px;">
+            Please fill out this field !</div>
+        </div>
+      </div>
+      <div class="row">
+      <div class="ui-md-4">
+       <p-orderList [value]="items" filterBy="Name" header="{{'orderData.availableItems' | translate}}">
+    <ng-template let-item pTemplate="item" >
+        <div class="ui-helper-clearfix" pDraggable="items" (onDragStart)="dragStart($event,item)"
+         (onDragEnd)="dragEnd($event)"><img [src]="item.image" 
+         class="img-thumbnail" style="display:inline-block;margin:2px 0 2px 2px" width="48">
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0">
+              {{translate.currentLang == 'en' ?  item.Name : item.NameAr }}</div>  
+          </div>
+    </ng-template>
+       </p-orderList>
+      </div>
+      <div class="ui-md-8 drop-column" pDroppable="items" (onDrop)="drop($event)">
+             
+                <p-table [value]="Finalselecteditems" [columns]="cols">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                          <th *ngFor="let col of columns">{{col.header}}</th>
+                          <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-item>
+                        <tr>
+                            <td>{{item.Item.Name}}</td>
+                            <td>{{item.Item.BarCode}}</td>
+                            <td><input type="number" name="quantity{{item.Item.ID}}" id=quantity class="form-control"
+                              #quantity="ngModel" [(ngModel)]="item.Quantity" required min="1"
+                              [ngClass]="{'ng-invalid-required' :  quantity.invalid}">
+                               <div *ngIf="quantity.invalid">
+                                <div *ngIf="quantity.errors.required" 
+                                class="text-danger" style="margin-top: 5px;">
+                                  Please fill out this field !</div>
+                              </div> 
+                            </td>
+                            <td><input type="number" name="uprice{{item.Item.ID}}" id="uprice" class="form-control"
+                                #uprice="ngModel" [(ngModel)]="item.UnitPrice" required min="1"
+                                [ngClass]="{'ng-invalid-required' :  uprice.invalid}">
+                                <div *ngIf="uprice.invalid">
+                                  <div *ngIf="uprice.errors.required" 
+                                  class="text-danger" style="margin-top: 5px;">
+                                    Please fill out this field !</div>
+                                </div></td>
+                            <td><input type="date" name="pDate{{item.Item.ID}}" id="pDate" class="form-control"
+                              #pDate="ngModel" [(ngModel)]="item.ProductionDate" required
+                              [ngClass]="{'ng-invalid-required' :  pDate.invalid}">
+                              <div *ngIf="pDate.invalid">
+                                <div *ngIf="pDate.errors.required" 
+                                class="text-danger" style="margin-top: 5px;">
+                                  Please fill out this field !</div>
+                              </div></td>
+                            <td><input type="date" name="eDate{{item.Item.ID}}" id="eDate" class="form-control"
+                              #eDate="ngModel" [(ngModel)]="item.ExpiryDate" required
+                              [ngClass]="{'ng-invalid-required' :  eDate.invalid}">
+                              <div *ngIf="eDate.invalid">
+                                <div *ngIf="eDate.errors.required" 
+                                class="text-danger" style="margin-top: 5px;">
+                                  Please fill out this field !</div>
+                              </div>
+                            </td>
+                              <td>
+                                <button class="btn-danger btn-floating rounded-circle"
+                                (click)="RemoveRecord(item.Item)">
+                                <i class="fa fa-minus"></i></button>
+                              </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <!-- </div>
+              </div> -->
+      </div>
+      </div>
+
+    <div class="ui-md-6">
+      <label><b>{{'orderData.comments' | translate}}</b></label>
+      <textarea type="text" rows="2" #comments="ngModel" name="comments" id="comments" 
+      class="form-control" [(ngModel)]="order.Comments"></textarea>
+    </div>
+    <div class="ui-md-6">
+      <label><b>{{'orderData.attachment' | translate}}</b></label>
+      <input type="file" #attachment="ngModel" name="attachment" id="attachment" 
+      class="form-control" [(ngModel)]="order.Attachment">
+    </div>
+  <div class="ui-md-12">
+    <button type="submit" class="btn btn-block" [disabled]="SaveOrder.invalid">{{'buttons.save' | translate}}</button>
+  </div>
+</div>
+  </form>
+  </div>
+</p-card>
+</div>

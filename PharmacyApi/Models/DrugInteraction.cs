@@ -12,6 +12,7 @@ namespace PharmacyApi.Models
 
         public int ID { get; set; }
         public string SideEffects { get; set; }
+        public bool IsActive { get; set; }
 
         public int DrugId { get; set; }
         [ForeignKey("DrugId")]

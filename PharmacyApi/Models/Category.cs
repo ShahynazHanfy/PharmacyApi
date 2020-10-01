@@ -18,6 +18,7 @@ namespace PharmacyApi.Models
         public string Description { get; set; }
 
         public string DescriptionAR { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual List<SubCategory> subcategory { get; set; }
 

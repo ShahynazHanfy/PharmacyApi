@@ -117,6 +117,14 @@ namespace PharmacyApi.Controllers
             return await _context.TheraGroup.ToListAsync();
         }
         [HttpGet]
+        [Route("activethera")]
+
+        public async Task<ActionResult<IEnumerable<TheraGroup>>> GetActiveThera()
+        {
+            return await _context.TheraGroup.Where(n=>n.IsActive == true).ToListAsync();
+        }
+
+        [HttpGet]
         [Route("therasub")]
 
         public async Task<ActionResult<IEnumerable<TheraSubGroup>>> GetTheraSub()
@@ -129,7 +137,7 @@ namespace PharmacyApi.Controllers
 
         public IEnumerable<TheraSubGroup> GetTheraSubByGrpId(int Grpid)
         {
-            var TheraSub = _context.TheraSubGroup.Where(x => x.TheraGroupID == Grpid).ToList();
+            var TheraSub = _context.TheraSubGroup.Where(x => x.TheraGroupID == Grpid&& x.IsActive==true).ToList();
 
             return TheraSub;
         }
@@ -174,6 +182,21 @@ namespace PharmacyApi.Controllers
             })
                 .ToList();
         }
+
+        [HttpGet]
+        [Route("activecountry")]
+
+        public IEnumerable<CountryDTO> GetAllActiveCountries()
+        {
+            return _context.Country.Where(m=>m.IsActive==true).Select(c => new CountryDTO
+            {
+                Code = c.Code,
+                ID = c.ID,
+                Name = c.Name
+            })
+                .ToList();
+        }
+
         [HttpGet]
         [Route("unit")]
 
@@ -191,6 +214,23 @@ namespace PharmacyApi.Controllers
             return units;
         }
         [HttpGet]
+        [Route("activeunit")]
+
+        public IEnumerable<UnitDTO> GetAllActiveUnits()
+        {
+            var units = _context.Unit.Where(x=>x.IsActive == true).
+                Select(u => new UnitDTO
+                {
+                    Code = u.Code,
+                    Description = u.Description,
+                    ID = u.ID,
+                    Name = u.Name
+                }).
+                ToList();
+            return units;
+        }
+
+        [HttpGet]
         [Route("ROAD")]
         public IEnumerable<RoadDTO> GetROAD()
         {
@@ -204,6 +244,18 @@ namespace PharmacyApi.Controllers
                 ).ToList();
         }
 
+        [Route("ActiveROAD")]
+        public IEnumerable<RoadDTO> GetAllActiveROAD()
+        {
+            return _context.ROAD.Where(x=>x.IsActive).Select(r => new RoadDTO
+            {
+                Name = r.Name,
+                ID = r.ID,
+                Description = r.Description,
+                Code = r.Code
+            }
+                ).ToList();
+        }
         [HttpPost]
         [Route("api/Drugs/UploadImage")]
         public ActionResult UploadImage(IFormFile file)

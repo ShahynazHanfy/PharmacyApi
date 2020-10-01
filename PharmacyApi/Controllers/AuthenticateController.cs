@@ -64,8 +64,9 @@ namespace PharmacyApi.Controllers
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
+                    roles = userRoles,
                     expiration = token.ValidTo
-                });
+                }); 
             }
             return Unauthorized();
         }

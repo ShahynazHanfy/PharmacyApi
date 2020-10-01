@@ -17,6 +17,7 @@ namespace PharmacyApi.Models
         public string telephone { get; set; }
 
         public string Email { get; set; }
+        public bool IsActive { get; set; }
 
         public string location { get; set; }
         public List<Order> orders { get; set; }///////////////////////////

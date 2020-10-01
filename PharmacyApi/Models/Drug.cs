@@ -13,14 +13,18 @@ namespace PharmacyApi.Models
         public string Code { get; set; }
         public string TradeName { get; set; }
         public string GenericName { get; set; }
-        public int Strength { get; set; }
-        public int Pack { get; set; }
+        public string Strength { get; set; }
+        public string Pack { get; set; }
         public string  License { get; set; }         
-        public int Size { get; set; }
+        public string Size { get; set; }
         public string Img { get; set; }
         public string ReOrderLevel { get; set; }
         public string BarCode { get; set; }
-
+        public bool IsActive { get; set; }
+        public int Quentity { get; set; }
+        public DateTime Prod_Date { get; set; }
+        public DateTime Exp_Date { get; set; }
+        public bool IsChecked { get; set; }
 
 
 

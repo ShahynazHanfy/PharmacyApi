@@ -1,0 +1,86 @@
+<div class="p-2">
+<div class="card">
+
+  <div class="container">
+    <br>
+    <form id="SaveGroup" #SaveGroup="ngForm" (ngSubmit)="SubmitData()">
+      <div class="ui-g ui-field ui-md-12">
+        <div class="ui-g ui-field ui-md-4">
+          <div class="ui-md-12">
+            <img [src]="group.image" class="img-thumbnail" width="250px" height="220" style="float: left;">
+          </div>
+
+          <div class="ui-md-12">
+            <div class="form-group" style="text-align: left;">
+              <input type="file" name="image" class="btn" id="image" accept="image/*" 
+              (change)="Uploadimage($event)" style="width: 100%;">
+            </div>
+          </div>
+        </div>
+
+        <div class="ui-g ui-field ui-md-8">
+
+          <div class="form-group ui-md-6">
+            <label>{{'groupData.name' | translate}}</label>
+            <input type="text" class="form-control" #Name="ngModel" name="Name" id="Name" [(ngModel)]="group.Name"
+              required [ngClass]="{'ng-invalid-required' : Name.touched && Name.invalid}">
+            <div *ngIf="Name.invalid">
+              <div *ngIf="Name.errors.required && (Name.dirty || Name.touched)" class="text-danger"
+                style="margin-top: 5px;">
+                Please fill out this field !</div>
+            </div>
+          </div>
+          <div class="form-group ui-md-6">
+            <label class="control-label">{{'groupData.nameAr' | translate}}</label>
+            <input type="text" #NameAr="ngModel" name="NameAr" id="NameAr" class="form-control"
+              [(ngModel)]="group.NameAr" required
+              [ngClass]="{'ng-invalid-required' : NameAr.touched && NameAr.invalid}">
+            <div *ngIf="NameAr.invalid">
+              <div *ngIf="NameAr.errors.required && (NameAr.dirty || NameAr.touched)" class="text-danger"
+                style="margin-top: 5px;">
+                Please fill out this field !</div>
+            </div>
+          </div>
+          <div class="form-group ui-md-12">
+            <label>{{'groupData.description' | translate}}</label>
+            <textarea type="text" rows="2" #Description="ngModel" name="Description" id="Description"
+              class="form-control" [(ngModel)]="group.Description" required
+              [ngClass]="{'ng-invalid-required' : Description.touched && Description.invalid}"></textarea>
+            <div *ngIf="Description.invalid">
+              <div *ngIf="Description.errors.required && (Description.dirty || Description.touched)" class="text-danger"
+                style="margin-top: 5px;">
+                Please fill out this field !</div>
+            </div>
+          </div>
+          <div class="form-group ui-md-12">
+            <label>{{'groupData.descriptionAr' | translate}}</label>
+            <textarea type="text" rows="2" #DescriptionAr="ngModel" name="DescriptionAr" id="DescriptionAr"
+              class="form-control" [(ngModel)]="group.DescriptionAr" required
+              [ngClass]="{'ng-invalid-required' : DescriptionAr.touched && DescriptionAr.invalid}"></textarea>
+            <div *ngIf="DescriptionAr.invalid">
+              <div *ngIf="DescriptionAr.errors.required && (DescriptionAr.dirty || DescriptionAr.touched)"
+                class="text-danger" style="margin-top: 5px;">
+                Please fill out this field !</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-group ui-md-1">
+          <label>{{'groupData.active' | translate}}</label>
+          <input type="checkbox" class="form-control" #IsActive="ngModel" name="IsActive" id="IsActive"
+            [(ngModel)]="group.IsActive" required>
+
+        </div>
+        <br>
+
+        <div class="form-group ui-md-12">
+          <button type="submit" class="btn btn-block"
+            [disabled]="currentUserStore !== '0' || SaveGroup.invalid">{{'buttons.save' | translate}}</button>
+        </div>
+      </div>
+
+    </form> <!-- End Form  -->
+  </div><!-- End Container  -->
+</div>
+</div>

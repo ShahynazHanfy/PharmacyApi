@@ -21,7 +21,7 @@ namespace PharmacyApi.Authentication
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Country> Country { get; set; }
 
-        public virtual DbSet<Customer> Customer { get; set; }
+        //public virtual DbSet<Customer> Customer { get; set; }
 
         public virtual DbSet<Drug> Drug { get; set; }
 
@@ -29,6 +29,7 @@ namespace PharmacyApi.Authentication
         public virtual DbSet<Firm> Firm { get; set; }
         public virtual DbSet<Form> Form { get; set; }
         public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Pharmacy> Pharmacy { get; set; }
 
         public virtual DbSet<PurchasedItem> PurchasedItem { get; set; }
