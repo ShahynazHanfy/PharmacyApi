@@ -81,7 +81,7 @@ namespace PharmacyApi.Controllers
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             _context.Order.Add(order);
-            await _context.SaveChangesAsync();
+           var orderID= await _context.SaveChangesAsync();
             var lst = order.orderDetailList.ToList();
             foreach (var item in lst)
             {
@@ -91,7 +91,7 @@ namespace PharmacyApi.Controllers
                 orderDetails.Exp_Date = item.Exp_Date;
                 orderDetails.Prod_Date = item.Prod_Date;
                 orderDetails.Price = item.Price;
-                orderDetails.OrderId = item.ID;
+                orderDetails.OrderId = orderID;
                 _context.OrderDetails.Add(orderDetails);
                 await _context.SaveChangesAsync();
             }

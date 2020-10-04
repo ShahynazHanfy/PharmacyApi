@@ -42,6 +42,7 @@ namespace PharmacyApi.Models
             [ForeignKey("pharmacyDeliverdID")]
         public Pharmacy pharmacyDelivered { get; set; }
 
+        public int pledgeID { get; set; }
         [ForeignKey("pledgeID")]
         public Pledge Pledge { get; set; }
 

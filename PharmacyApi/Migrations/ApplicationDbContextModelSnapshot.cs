@@ -453,7 +453,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("pharmacyID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("pledgeID")
+                    b.Property<int>("pledgeID")
                         .HasColumnType("int");
 
                     b.Property<int>("supplierID")
@@ -882,7 +882,9 @@ namespace PharmacyApi.Migrations
 
                     b.HasOne("PharmacyApi.Models.Pledge", "Pledge")
                         .WithMany("orders")
-                        .HasForeignKey("pledgeID");
+                        .HasForeignKey("pledgeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()

@@ -27,7 +27,8 @@ namespace PharmacyApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Drug>>> GetDrug()
         {
-            return await _context.Drug.ToListAsync();
+            var drugs = await _context.Drug.ToListAsync();
+            return drugs;
         }
 
         // GET: api/Drugs/5
@@ -290,6 +291,33 @@ namespace PharmacyApi.Controllers
             memory.Position = 0;
             var contentType = "APPLICATION/octet-stream";
             return File(memory, contentType, Path.GetFileName(path));
+        }
+
+        [Route("pharmacy")]
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Pharmacy>>> GetPharmacies()
+        {
+            var Pharmacies = await _context.Pharmacy.ToListAsync();
+            return Pharmacies;
+        }
+
+        [Route("pledge")]
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Pledge>>> GetPledges()
+        {
+            var Pledges = await _context.Pledge.ToListAsync();
+            return Pledges;
+        }
+
+        [Route("Supplier")]
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Supplier>>> GetSuppliers()
+        {
+            var Suppliers = await _context.Supplier.ToListAsync();
+            return Suppliers;
         }
 
 
