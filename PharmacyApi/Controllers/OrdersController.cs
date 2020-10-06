@@ -78,10 +78,10 @@ namespace PharmacyApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<IActionResult> PostOrder(Order order)
         {
             _context.Order.Add(order);
-           var orderID= await _context.SaveChangesAsync();
+            var orderID = _context.SaveChanges();
             var lst = order.orderDetailList.ToList();
             foreach (var item in lst)
             {
@@ -93,9 +93,9 @@ namespace PharmacyApi.Controllers
                 orderDetails.Price = item.Price;
                 orderDetails.OrderId = orderID;
                 _context.OrderDetails.Add(orderDetails);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
-            return CreatedAtAction("GetOrder", new { id = order.ID }, order);
+            return Ok();
         }
 
         // DELETE: api/Orders/5
