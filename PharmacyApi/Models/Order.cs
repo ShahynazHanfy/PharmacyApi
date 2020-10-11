@@ -33,8 +33,8 @@ namespace PharmacyApi.Models
 
         public int pharmacyID { get; set; }
         [ForeignKey("pharmacyID")]
-        //[NotMapped]
-        //public Pharmacy pharmacy { get; set; }
+        [NotMapped]
+        public Pharmacy pharmacy { get; set; }
 
         //public List<PurchasedItem> PurchasedItems { get; set; }
 

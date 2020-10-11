@@ -12,6 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using PharmacyApi.Authentication;
 using PharmacyApi.ViewModel;
+using PharmacyApi.ViewModels;
 
 namespace PharmacyApi.Controllers
 {
@@ -70,26 +71,49 @@ namespace PharmacyApi.Controllers
             }
             return Unauthorized();
         }
-
         [HttpPost]
         [Route("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel model)
+        public async Task<IActionResult> Register([FromBody] UserVM model)
         {
-            var userExists = await userManager.FindByNameAsync(model.Username);
+            var userExists = await userManager.FindByEmailAsync(model.Email);
             if (userExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
-
+            model.UserName = model.UserName.Replace(' ', '_');
             ApplicationUser user = new ApplicationUser()
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
+                UserName = model.UserName
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
-
+            if (model.Role == "Admin")
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.Admin);
+            }
+            else if (model.Role == "User")
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.User);
+            }
+            else if (model.Role == "Clerk")
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.Clerk);
+            }
+            else if (model.Role == "DataEntry")
+            {
+                await userManager.AddToRoleAsync(user, UserRoles.DataEntry);
+            }
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+        }
+        [HttpPost]
+        [Route("changPassword")]
+        public async Task<IActionResult> ChangPassword(ChangePassword model)
+        {
+            var user = await userManager.FindByNameAsync(model.userName);
+            //user != null && await userManager.CheckPasswordAsync(user, model.Password)
+            await userManager.ChangePasswordAsync(user, model.Password, model.NewPassword);
+            return Ok();
         }
 
         [HttpPost]

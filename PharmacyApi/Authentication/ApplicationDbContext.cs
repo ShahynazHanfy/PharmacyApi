@@ -35,6 +35,8 @@ namespace PharmacyApi.Authentication
         public virtual DbSet<PurchasedItem> PurchasedItem { get; set; }
 
         public virtual DbSet<ROAD> ROAD { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
+
         public virtual DbSet<SubCategory> SubCategory { get; set; }
 
         public virtual DbSet<Supplier> Supplier { get; set; }
