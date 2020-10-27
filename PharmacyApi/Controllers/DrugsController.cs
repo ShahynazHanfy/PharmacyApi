@@ -297,14 +297,7 @@ namespace PharmacyApi.Controllers
             return File(memory, contentType, Path.GetFileName(path));
         }
 
-        [Route("pharmacy")]
-
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Pharmacy>>> GetPharmacies()
-        {
-            var Pharmacies = await _context.Pharmacy.ToListAsync();
-            return Pharmacies;
-        }
+      
 
         [Route("pledge")]
 

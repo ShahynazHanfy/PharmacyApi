@@ -9,10 +9,12 @@ namespace PharmacyApi.ViewModels
 {
     public class UserVM
     {
+        
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Role { get; set; }
         public string Password { get; set; }
+        public string PharmacyName { get; set; }
         public int pharmacyID { get; set; }
         [ForeignKey("pharmacyID")]
         public Pharmacy pharmacy { get; set; }

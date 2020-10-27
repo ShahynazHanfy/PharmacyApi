@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PharmacyApi.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace PharmacyApi.Models
         public string location { get; set; }
         public List<Order> orders { get; set; }///////////////////////////
         public List<Employee> employees { get; set; }///////////////////////////
+
 
     }
 }

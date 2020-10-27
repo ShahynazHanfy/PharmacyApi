@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201019134306_t")]
-    partial class t
+    [Migration("20201027125231_re")]
+    partial class re
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -204,6 +204,9 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<int>("pharmacyID")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -213,6 +216,8 @@ namespace PharmacyApi.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("pharmacyID");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -839,6 +844,15 @@ namespace PharmacyApi.Migrations
                     b.HasOne("PharmacyApi.Authentication.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("PharmacyApi.Authentication.ApplicationUser", b =>
+                {
+                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacy")
+                        .WithMany()
+                        .HasForeignKey("pharmacyID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

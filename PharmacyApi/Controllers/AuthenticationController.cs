@@ -37,9 +37,12 @@ namespace PharmacyApi.Controllers
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var user = await userManager.FindByNameAsync(model.Username);
+           
+            
             if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
                 var userRoles = await userManager.GetRolesAsync(user);
+
 
                 var authClaims = new List<Claim>
                 {
@@ -66,7 +69,9 @@ namespace PharmacyApi.Controllers
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     roles = userRoles,
-                    expiration = token.ValidTo
+                    expiration = token.ValidTo,
+                    user.pharmacyID,
+                    
                 });
             }
             return Unauthorized();
@@ -84,7 +89,7 @@ namespace PharmacyApi.Controllers
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.UserName,
-
+                pharmacyID=model.pharmacyID,
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)

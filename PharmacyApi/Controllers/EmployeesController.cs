@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PharmacyApi.Authentication;
+using PharmacyApi.DTO;
 using PharmacyApi.Models;
 
 namespace PharmacyApi.Controllers
@@ -23,9 +24,18 @@ namespace PharmacyApi.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
+        public async Task<ActionResult<IEnumerable<EmployeeDTO>>> GetEmployee()
         {
-            return await _context.Employee.ToListAsync();
+             return await _context.Employee.Select(item => new EmployeeDTO()
+            {
+                Name = item.Name,
+                Email = item.Email,
+                Address = item.Address,
+                Telephone = item.Telephone,pharmacyID=(int)item.pharmacyID,
+                ID=item.ID,
+                pharmacyName = _context.Pharmacy.Where(a => a.ID == item.pharmacyID).FirstOrDefault().Name
+            }).ToListAsync();
+            
         }
 
         // GET: api/Employees/5
