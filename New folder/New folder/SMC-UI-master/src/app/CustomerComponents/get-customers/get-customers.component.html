@@ -1,0 +1,100 @@
+<div class="p-2">
+    <p-table #dt [value]="customers" dataKey="id" styleClass="ui-table-customers" [rowHover]="true" [rows]="5"
+        [rowsPerPageOptions]="[5,10,15]" [loading]="loading" [paginator]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [filterDelay]="0"
+        [globalFilterFields]="['name']">
+        <ng-template pTemplate="caption">
+            <div class="row">
+                <div class="col-6 p-md-2" style="text-align: left;">
+                    <button type="button" style="margin-left: 5px;" class="btn" [disabled]="!IsSuperAdmin"
+                        routerLink="/CustomerDetails/0">
+                        <i class="fa fa-plus fa-lg"></i>{{'buttons.createNewCustomer' | translate}}</button>
+                </div>
+                <div class="col-6 p-md-2" style="text-align: right;">
+                    <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" 
+                    label="PDF" (click)="exportPdf()"  class="ui-button-warning"></button>
+                </div>
+            </div>
+
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="CompanyName">{{'supplierData.companyName' | translate}}
+                    <p-sortIcon field="CompanyName"></p-sortIcon>
+                </th>
+                <th pSortableColumn="ContactPerson">{{'supplierData.contactPerson' | translate}}
+                    <p-sortIcon field="ContactPerson"></p-sortIcon>
+                </th>
+                <th pSortableColumn="Telephone">{{'supplierData.telephone' | translate}}
+                    <p-sortIcon field="Telephone"></p-sortIcon>
+                </th>
+                <th pSortableColumn="City">{{'supplierData.city' | translate}}
+                    <p-sortIcon field="City"></p-sortIcon>
+                </th>
+                <th pSortableColumn="Category">{{'supplierData.category' | translate}}
+                    <p-sortIcon field="Category"></p-sortIcon>
+                </th>
+                <th></th>
+            </tr>
+            <tr>
+                <th>
+                    <input class="form-control" type="text"
+                        (input)="dt.filter($event.target.value, 'CompanyName', 'startsWith')">
+                </th>
+                <th>
+                    <input class="form-control" type="text"
+                        (input)="dt.filter($event.target.value, 'ContactPerson', 'startsWith')">
+                </th>
+
+                <th>
+                    <input class="form-control" type="number"
+                        (input)="dt.filter($event.target.value, 'Telephone', 'startsWith')">
+                </th>
+                <th>
+                    <input class="form-control" type="text"
+                        (input)="dt.filter($event.target.value, 'City', 'startsWith')">
+                </th>
+                <th>
+                    <input class="form-control" type="text"
+                        (input)="dt.filter($event.target.value, 'Category', 'startsWith')">
+                </th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer>
+            <tr class="ui-selectable-row">
+
+                <td>
+                    <span class="ui-column-title"> {{customer.CompanyName}}</span>
+                </td>
+                <td>
+                    <span class="ui-column-title"> {{customer.ContactPerson}}</span>
+                </td>
+                <td>
+                    <span class="ui-column-title"> {{customer.Telephone}}</span>
+                </td>
+
+                <td>
+                    <span class="ui-column-title"> {{customer.City}}</span>
+                </td>
+                <td>
+                    <span class="ui-column-title"> {{customer.Category}}</span>
+                </td>
+                <td>
+                    <button class="ui-button btn Btn-icons" [disabled]="!IsSuperAdmin" style="margin-right: 20px;"
+                        [routerLink]="['/CustomerDetails' , customer.ID]">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                    <button class="ui-button btn Btn-icons" [disabled]="!IsSuperAdmin"
+                        (click)="Deleteustomer(customer.ID)">
+                        <i class="fa fa-trash"></i></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8" style="text-align:left">No Customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

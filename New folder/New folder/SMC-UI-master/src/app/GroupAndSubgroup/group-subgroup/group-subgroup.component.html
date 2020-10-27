@@ -1,0 +1,8 @@
+<p-tabView>
+  <p-tabPanel header="{{'nav.groups' | translate}}">
+   <app-get-groups></app-get-groups>
+  </p-tabPanel>
+  <p-tabPanel header="{{'nav.subgroups' | translate}}">
+    <app-get-subgroups [groupId]="groupId"></app-get-subgroups>
+  </p-tabPanel>
+</p-tabView>

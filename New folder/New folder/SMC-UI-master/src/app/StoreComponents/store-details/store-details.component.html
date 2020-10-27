@@ -1,0 +1,111 @@
+<div class="p-2">
+<div class="card">
+
+  <div class="container">
+    <br>
+    <form id="savestore" #savestore="ngForm" (ngSubmit)="SubmitData()">
+      <div class="ui-g ui-field ui-md-12">
+        <div class="ui-g ui-field ui-md-4">
+          <div class="ui-md-12">
+            <img [src]="Store.image" class="img-thumbnail" width="250px" height="200" style="float: left;">
+          </div>
+
+          <div class="ui-md-12">
+            <div class="form-group" style="text-align: left;">
+              <input type="file" name="image" class="btn" id="image" accept="image/*" (change)="Uploadimage($event)"
+                required style="width: 100%;">
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g ui-field ui-md-8">
+          <div class="ui-md-6">
+            <label>{{'addStore.name' | translate}}</label>
+            <input type="text" class="form-control" #Name="ngModel" name="Name" id="Name" [(ngModel)]="Store.Name"
+              required [ngClass]="{'ng-invalid-required' : Name.touched && Name.invalid}">
+            <div *ngIf="Name.invalid">
+              <div *ngIf="Name.errors.required && (Name.dirty || Name.touched)" class="text-danger"
+                style="margin-top: 5px;">
+                Please fill out this field !</div>
+            </div>
+          </div>
+          <div class="ui-md-6">
+            <label>{{'addStore.storeKeeper' | translate}}</label>
+            <select class="form-control" required id="storekeeper" #storekeeper="ngModel" name="storekeeper"
+              [(ngModel)]="Store.StoreKeeperId"
+              [ngClass]="{'ng-invalid-required' : storekeeper.touched && storekeeper.invalid}">
+              <option *ngFor="let k of keepers" [value]="k.ID" required>{{k.Name}}</option>
+            </select>
+            <div *ngIf="storekeeper.invalid">
+              <div *ngIf="storekeeper.errors.required && (storekeeper.dirty || storekeeper.touched)" 
+              class="text-danger" style="margin-top: 5px;">
+                Please fill out this field !</div>
+            </div>
+          </div>
+
+          <div class="ui-md-6">
+            <label class="control-label">{{'addStore.address' | translate}}</label>
+            <input type="text" #address="ngModel" name="address" id="address" class="form-control"
+              [(ngModel)]="Store.Address" required 
+              [ngClass]="{'ng-invalid-required' : address.touched && address.invalid}">
+              <div *ngIf="address.invalid">
+                <div *ngIf="address.errors.required && (address.dirty || address.touched)" 
+                class="text-danger" style="margin-top: 5px;">
+                  Please fill out this field !</div>
+              </div>
+          </div>
+
+          <div class="ui-md-6">
+            <label class="control-label">{{'addStore.addressAr' | translate}}</label>
+            <input type="text" #addressAr="ngModel" name="addressAr" id="addressAr" class="form-control"
+              [(ngModel)]="Store.AddressAr" required
+              [ngClass]="{'ng-invalid-required' : addressAr.touched && addressAr.invalid}">
+              <div *ngIf="addressAr.invalid">
+                <div *ngIf="addressAr.errors.required && (addressAr.dirty || addressAr.touched)" 
+                class="text-danger" style="margin-top: 5px;">
+                  Please fill out this field !</div>
+              </div>
+          </div>
+
+          <div class="form-group ui-md-6">
+            <label class="control-label">{{'addStore.area' | translate}} ({{'addStore.m' | translate}})</label>
+            <input type="number" #area="ngModel" name="area" id="area" class="form-control" 
+            [(ngModel)]="Store.Area" min="1">
+          </div>
+          <div class="form-group ui-md-6">
+            <label class="control-label">{{'addStore.telephone' | translate}}</label>
+            <input type="text" #telephone="ngModel" name="telephone" id="telephone" class="form-control"
+              [(ngModel)]="Store.Telephone">
+          </div>
+
+        </div>
+        <div class="form-group ui-md-12">
+          <label>{{'addStore.location' | translate}}</label>
+          <input type="text" #location="ngModel" name="location" id="location" class="form-control"
+            [(ngModel)]="Store.Lcation">
+        </div>
+        <div class="form-group ui-md-12">
+          <label>{{'addStore.remarks' | translate}}</label>
+          <textarea type="text" rows="4" #remarks="ngModel" name="remarks" id="remarks" class="form-control"
+            [(ngModel)]="Store.Remarks"></textarea>
+        </div>
+
+        <div class="form-group ui-md-1">
+          <label>{{'addStore.active' | translate}}</label>
+          <input type="checkbox" class="form-control" #IsActive="ngModel" name="IsActive" id="IsActive"
+            [(ngModel)]="Store.IsActive">
+           
+        </div>
+        <br>
+
+        <div class="form-group ui-md-12">
+          <button type="submit" class="btn btn-block" 
+            [disabled]="currentUserStore !== '0' || savestore.invalid">{{'buttons.save' | translate}}</button>
+        </div>
+      </div>
+
+    </form> <!-- End Form  -->
+  </div><!-- End Container  -->
+</div>
+</div>

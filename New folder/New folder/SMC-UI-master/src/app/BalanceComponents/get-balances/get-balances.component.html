@@ -1,0 +1,65 @@
+<div class="p-2">
+<p-table #dt [value]="balances"  dataKey="id" styleClass="ui-table-balances" [rowHover]="true"
+[rows]="5"  [rowsPerPageOptions]="[5,10,15]" [loading]="loading"
+[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+[filterDelay]="0" [globalFilterFields]="['name']">
+<ng-template pTemplate="caption">
+    <div class="row">
+    <button type="button" style="margin-left: 8px;" class="btn"
+    [disabled]="AuthorizedToAdd == false" routerLink="/BalanceDetails/0">
+        <i class="fa fa-plus fa-lg"></i>{{'buttons.createNewBalance' | translate}}</button>
+      
+    </div>
+</ng-template>
+<ng-template pTemplate="header">
+    <tr>
+        <th pSortableColumn="BalanceDate">{{'balanceData.balanceDate' | translate}}
+           <p-sortIcon field="BalanceDate"></p-sortIcon></th>
+        <th pSortableColumn="StoreId">{{'balanceData.store' | translate}}
+           <p-sortIcon field="StoreId"></p-sortIcon></th>
+        <th></th>
+    </tr>
+    <tr>  
+      <th>
+        <input type="date" class="form-control"
+         (input)="dt.filter($event.target.value, 'TransactionDate', 'equals')" 
+         >
+    </th>    
+    <th>
+    <select class="form-control"  id="store" #type="ngModel"
+    [(ngModel)]="filterType" name="store" 
+(ngModelChange)="onStoreChange($event)">
+<option *ngFor="let s of stores" [value]="s.ID" >{{s.Name}}</option>
+</select> 
+</th>            
+        <th></th>
+    </tr>
+</ng-template>
+<ng-template pTemplate="body" let-balance>
+    <tr class="ui-selectable-row">
+       
+        <td>
+            <span class="ui-column-title"> {{balance.BalanceDate|  date :'yyyy-MM-dd'}}</span>
+        </td>
+        <td>
+          <span class="ui-column-title"> {{balance.Store.Name }}</span>
+      </td>
+           
+        <td>
+            <button class="ui-button btn Btn-icons" [disabled]="AuthorizedToEdit == false"
+            style="margin-right: 20px;" [routerLink]="['/BalanceDetails' , balance.ID]">
+            <i class="fa fa-pencil"></i>
+        </button>
+            <button class="ui-button btn Btn-icons" [disabled]="AuthorizedToRemove == false"
+            (click)="DeleteType(trancationtype.ID)">
+        <i class="fa fa-trash"></i></button>
+        </td>
+    </tr>
+</ng-template>
+<ng-template pTemplate="emptymessage">
+    <tr>
+        <td colspan="8" style="text-align:left">No trancationtypes found.</td>
+    </tr>
+</ng-template>
+</p-table>
+</div>

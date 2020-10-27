@@ -1,0 +1,100 @@
+<div class="p-2">
+<p-dataView #dv [value]="FilteredItems" [paginator]="true" [rows]="5"
+paginatorPosition="both" filterBy="Name">
+   <p-header>
+     <div class="ui-g ui-field ui-md-12">
+     <div class="ui-md-2">
+         <button class="btn" routerLink="/ItemDetails/0" [disabled]="currentUserStore !== '0'"><i class="fa fa-plus"></i>
+           {{'buttons.createNewItem' | translate}}
+         </button>
+     </div>
+
+     <div class="ui-md-3">
+      <input type="text" class="form-control"
+      placeholder="{{'groupData.searchByname' | translate}}" (input)="dv.filter($event.target.value)">
+     </div>
+     <div class="ui-md-3">
+      <select class="form-control"  id="group" #group="ngModel"
+      [(ngModel)]="Selectedgroup" name="group" (ngModelChange)="onGroupChange($event)">
+      <option *ngFor="let g of groups" [value]="g.ID" >{{g.Name}}</option>
+      </select>
+     </div>
+     <div class="ui-md-3">
+      <select class="form-control"  id="subgroup" #subgroup="ngModel"
+      [(ngModel)]="Selectedsubgroup" name="subgroup" (ngModelChange)="onSubgroupChange($event)">
+      <option *ngFor="let sg of subgroups" [value]="sg.ID" >{{sg.Name}}</option>
+      </select>
+     </div>
+     <div class="ui-md-1" style="text-align:right">
+       <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+     </div>
+
+     </div>
+     <br>
+       <div class="row">
+        <button type="button" pButton icon="pi pi-file-pdf" label="PDF"
+        (click)="exportPdf()" class="ui-button-warning"></button>
+       </div>
+   </p-header>
+   <ng-template let-item pTemplate="listItem">
+       <div>
+          
+           <div class="row item-details">
+               <div>
+                   <img [src]="item.image" style="margin-left: 10px;margin-right: 10px;" class="img-thumbnail"
+                    width="150" height="150">
+                 </div>
+                 <div class="ui-md-9">
+                   <div class="p-grid">
+                       <div class="p-col-12">
+                           {{'itemData.name' | translate}} :
+                            <b>{{ translate.currentLang == "en" ?  item.Name : item.NameAr }}</b></div>
+                            <div class="p-col-12">
+                               {{'itemData.description' | translate}} :
+                                <b>{{ translate.currentLang == "en" ?  item.Description : item.DescriptionAr }}</b>
+                               </div>
+                               <br>
+                        <div>
+                           <button [value]="item.ID" class="btn Btn-icons" style="margin-right:5px;" 
+                           [routerLink]="['/ItemDetails' , item.ID]">
+                           <i class="fa fa-pencil"></i>
+                           </button>
+                           <button  class="btn Btn-icons" style="margin-right:5px"
+                           (click)="DeleteItem(item.ID)"[disabled]="currentUserStore !== '0'"
+                           ><i class="fa fa-trash-o" ></i>
+                           </button>
+                          
+                        </div>                       
+                   </div>
+                 </div>
+                  
+                 <hr width="90%">
+               <!-- <button pButton type="button" icon="pi pi-search" (click)="selectGroup($event, group)"></button> -->
+           </div>
+           
+       </div>
+   </ng-template>
+   <ng-template let-item pTemplate="gridItem">
+       <div style="padding:.5em" class="p-col-12 col-md-4">
+           <p-panel header="{{ translate.currentLang == 'en' ?  item.Name : item.NameAr }}" [style]="{'text-align':'center'}">
+               <img [src]="item.image" width="150" height="150" class="img-thumbnail">
+               <br>
+               <br>
+              
+               <hr width="90%">
+               <button [value]="item.ID" class="btn rounded-circle Btn-icons" style="margin-right:5px" 
+               [routerLink]="['/ItemDetails' , item.ID]">
+               <i class="fa fa-pencil"></i>
+               </button>
+               <button  class="btn rounded-circle Btn-icons" style="margin-right:5px"
+               (click)="DeleteItem(item.ID)" [disabled]="currentUserStore !== '0'">
+               <i class="fa fa-trash-o" ></i>
+               </button>
+               
+           </p-panel>  
+       </div>
+   </ng-template>
+</p-dataView>
+
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+</div>

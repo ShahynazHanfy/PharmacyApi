@@ -1,0 +1,86 @@
+
+<p-dataView #dv [value]="groups" [paginator]="true" [rows]="5"
+ paginatorPosition="both" filterBy="Name">
+    <p-header>
+      <div class="row">
+      <div class="col-md-4">
+          <button class="btn" routerLink="/GroupDetails/0" [disabled]="currentUserStore !== '0'"><i class="fa fa-plus"></i>
+            {{'buttons.createNewGroup' | translate}}
+          </button>
+      </div>
+
+      <div class="col-md-4">
+       <input type="text" class="form-control" size="50"
+       placeholder="{{'groupData.searchByname' | translate}}" (input)="dv.filter($event.target.value)">
+      </div>
+
+      <div class="col-md-4" style="text-align:right">
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+      </div>
+
+      </div>
+        
+    </p-header>
+    <ng-template let-group pTemplate="listItem">
+        <div>
+           
+            <div class="row group-details">
+                <div>
+                    <img [src]="group.image" style="margin-left: 10px;margin-right: 10px;" class="img-thumbnail"
+                     width="150" height="150">
+                  </div>
+                  <div class="ui-md-9">
+                    <div class="p-grid">
+                        <div class="p-col-12">
+                            {{'groupData.name' | translate}} :
+                             <b>{{ translate.currentLang == "en" ?  group.Name : group.NameAr }}</b></div>
+                             <div class="p-col-12">
+                                {{'groupData.description' | translate}} :
+                                 <b>{{ translate.currentLang == "en" ?  group.Description : group.DescriptionAr }}</b>
+                                </div>
+                                <br>
+                         <div>
+                            <button [value]="group.ID" class="btn Btn-icons" style="margin-right:5px;" 
+                            [routerLink]="['/GroupDetails' , group.ID]">
+                            <i class="fa fa-pencil"></i>
+                            </button>
+                            <button  class="btn Btn-icons" style="margin-right:5px"
+                            (click)="DeleteGroup(group.ID)" [disabled]="currentUserStore !== '0'"><i class="fa fa-trash-o" ></i>
+                            </button>
+                            <a style="float: right;" [routerLink]="['/ViewGrpSubgroups' , group.ID]"
+                            (click)="showDialog(group.ID)">{{'groupData.viewSubGroups' | translate}}</a>
+                         </div>                       
+                    </div>
+                  </div>
+                   
+                  <hr width="90%">
+                <!-- <button pButton type="button" icon="pi pi-search" (click)="selectGroup($event, group)"></button> -->
+            </div>
+            
+        </div>
+    </ng-template>
+    <ng-template let-group pTemplate="gridItem">
+        <div style="padding:.5em" class="p-col-12 col-md-4">
+            <p-panel header="{{ translate.currentLang == 'en' ?  group.Name : group.NameAr }}" [style]="{'text-align':'center'}">
+                <img [src]="group.image" width="150" height="150" class="img-thumbnail">
+                <br>
+                <br>
+                <a [routerLink]="['/ViewGrpSubgroups' , group.ID]">{{'groupData.viewSubGroups' | translate}}
+                </a>
+                <!-- <b>{{group.Description}}</b> -->
+                <hr width="90%">
+                <button [value]="group.ID" class="btn rounded-circle Btn-icons" style="margin-right:5px" 
+                [routerLink]="['/GroupDetails' , group.ID]">
+                <i class="fa fa-pencil"></i>
+                </button>
+                <button  class="btn rounded-circle Btn-icons" style="margin-right:5px"
+                (click)="DeleteGroup(group.ID)" [disabled]="currentUserStore !== '0'"><i class="fa fa-trash-o" ></i>
+                </button>
+                
+            </p-panel>  
+        </div>
+    </ng-template>
+</p-dataView>
+
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+

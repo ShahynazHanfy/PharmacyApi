@@ -1,0 +1,97 @@
+<div class="p-2">
+<form id="Register" #Register="ngForm" (ngSubmit)="RegisterUser()">
+  <div class="container">
+    <div class="ui-g ui-field ui-md-12">
+      <div class="form-group ui-md-3">
+        <label for="email"><b>{{'user.email' | translate}}</b></label>
+        <input type="text" placeholder="Enter Email" name="email" class="form-control"
+        #Email="ngModel" [(ngModel)]="user.Email" required>
+    </div>
+
+    <div class="form-group ui-md-3">
+    <label for="fname"><b>{{'user.firstname' | translate}}</b></label>
+    <input type="text" placeholder="Enter first name" name="fname" class="form-control"
+    #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
+    </div>
+
+    
+    <div class="form-group ui-md-3">
+    <label for="lname"><b>{{'user.lastname' | translate}}</b></label>
+    <input type="text" placeholder="Enter last name" name="lname" class="form-control"
+    #LastName="ngModel" [(ngModel)]="user.LastName" required>
+    </div>
+
+    <div class="form-group ui-md-3">
+      <label for="phone"><b>{{'user.phone' | translate}}</b></label>
+      <input type="text" placeholder="Enter phone Number" name="phone" class="form-control"
+      #phone="ngModel" [(ngModel)]="user.PhoneNumber" required>
+  </div>
+
+<div class="form-group ui-md-3">
+    <label for="psw"><b>{{'user.password' | translate}}</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" class="form-control"
+    #Password="ngModel" [(ngModel)]="user.Password" required>
+</div>
+
+<div class="form-group ui-md-3">
+    <label for="cpsw"><b>{{'user.confirmPassword' | translate}}</b></label>
+    <input type="password" placeholder="Enter Password" name="cpsw" class="form-control"
+    #ConfirmPassword="ngModel" [(ngModel)]="user.ConfirmPassword" required>
+</div>
+
+<div class="form-group ui-md-6">
+  <label><b>{{'user.role' | translate}}</b></label>
+  <br>
+<div *ngIf="displaySuper"  class="custom-control custom-radio custom-control-inline">
+  <p-radioButton name="roleType" value="Super Admin" (click)="ChangeRole('Super Admin')" [(ngModel)]="selectedType"
+  label="Super Admin"></p-radioButton>
+</div> 
+<div  class="custom-control custom-radio custom-control-inline">
+  <p-radioButton name="roleType" value="Admin" (click)="ChangeRole('Admin')" [(ngModel)]="selectedType"
+  label="Admin"></p-radioButton>
+</div> 
+<div class="custom-control custom-radio custom-control-inline">
+  <p-radioButton name="roleType" value="Data Entry" (click)="ChangeRole('Data Entry')" [(ngModel)]="selectedType"
+  label="Data Entry"></p-radioButton>
+</div> 
+</div>
+
+<div *ngIf="displayStores" class="form-group ui-md-6">
+  <label><b>{{'user.store' | translate}}</b></label>
+  <select class="form-control" required id="store" #store="ngModel" name="store" 
+  [(ngModel)]="user.StoreId">
+<option *ngFor="let s of stores" [value]="s.ID" required
+disabled="{{s.ID == CurrentUserstore || CurrentUserstore == 0 ? '' : true }}">{{s.Name}}</option>
+  </select>
+</div>
+
+<div *ngIf="displayDataEntry" class="form-group ui-md-6">
+  <div class="p-grid" style="width:250px;margin-bottom:10px">
+    <div class="p-col-2"><p-checkbox name="operation" value="Read" label="Read" 
+      [(ngModel)]="selectedOperations" inputId="ny"></p-checkbox></div>
+    <div class="p-col-2"><p-checkbox name="operation" value="Add" label="Add" 
+      [(ngModel)]="selectedOperations" inputId="sf"></p-checkbox></div>
+    <div class="p-col-2"><p-checkbox name="operation" value="Update" label="Update" 
+      [(ngModel)]="selectedOperations" inputId="la"></p-checkbox></div>
+    <div class="p-col-2"><p-checkbox name="operation" value="Delete" label="Delete" 
+      [(ngModel)]="selectedOperations" inputId="la"></p-checkbox></div>
+</div>
+</div>
+
+<div class="form-group ui-md-1">
+  <label><b>{{'user.active' | translate}}</b></label>   
+   <input type="checkbox" class="form-control" #IsActive="ngModel"  name="IsActive" id="IsActive"
+    [(ngModel)]="user.IsActive" required>
+  <div class="valid-feedback">Valid.</div>
+  <div class="invalid-feedback">Please fill out this field.</div>
+</div>
+<br>
+<div class="ui-md-12">
+  <button type="submit" class="btn btn-block" >{{'buttons.save' | translate}}</button>
+</div>
+  
+  </div>
+
+  </div>
+</form>
+</div>

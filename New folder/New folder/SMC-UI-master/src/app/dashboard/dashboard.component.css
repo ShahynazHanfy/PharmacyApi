@@ -1,0 +1,64 @@
+.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 80px;
+    margin: 0 auto -40px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 80px;
+}
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+.circle-tile-content {
+    padding-top: 50px;
+}
+
+.circle-tile-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 5px;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.tile-img {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dark-blue {
+    background-color: #34495E;
+}
+
+.red {
+    background-color: #E74C3C;
+} 
+
+.text-faded {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+.Quartercard{
+    cursor: pointer;
+}
+
+.purple{
+    background-color: purple;
+    }
+
+:host >>> .ui-fieldset-legend a {
+    border-radius: 7px !important;
+        color: #f3ecec !important;
+        background-color: #2b7f9b  !important;
+    }
+
+:host >>> .ui-fieldset-legend a p-header
+{
+    font-size: large;
+}

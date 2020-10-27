@@ -1,0 +1,28 @@
+.btn {
+    background-color:  #E67E22;
+    color: whitesmoke;
+    border: none;
+    /* padding: 8px 8px; */
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+
+  .btn:hover {
+    background-color: #2B7F9B;
+  }
+  .ng-touched .ng-invalid-required {
+    border-color: red;
+  }
+  
+  .ng-touched .ng-valid {
+    border-color: green;
+  }
+
+  /* .drop-column {
+    border: 1px solid transparent;
+    
+} */
+.ui-table-thead{
+  border: 0px !important ;
+}

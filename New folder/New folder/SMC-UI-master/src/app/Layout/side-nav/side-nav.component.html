@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" *ngIf="currentUser">
+				<div class="p-4 pt-3">
+		  		<img href="#" class="img logo rounded-circle mb-6" src="../../../assets/images/logo.jpeg">
+	        <ul class="list-unstyled components mb-5">
+            <li>
+              <a routerLink="/Dashboard" routerLinkActive="active" >{{'nav.dashboard' | translate}}</a>
+          </li>
+	          <li class="active">
+	            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                {{'nav.infomanagement' | translate}}</a>
+	            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                    <a routerLink="/Stores"  routerLinkActive="active"><h4>{{'nav.stores' | translate}}</h4></a>
+                </li>
+                <li>
+                  <a routerLink="/Suppliers">{{'nav.suppliers' | translate}}</a>
+              </li>
+              <li>
+                <a routerLink="/Customers">{{'nav.customers' | translate}}</a>
+            </li>
+                <li>
+                    <a routerLink="/GroupsAndSubgroups">{{'nav.groups' | translate}} & {{'nav.subgroups' | translate}}</a>
+                </li>
+                <li>
+                    <a routerLink="/Items">{{'nav.items' | translate}}</a>
+                </li>
+              
+	            </ul>
+	          </li>
+	         <li>
+            <a routerLink="/Users">{{'nav.users' | translate}}</a>
+           </li>
+	           <li>
+              <a href="#Transaction" data-toggle="collapse" aria-expanded="false" 
+              class="dropdown-toggle">{{'nav.orders' | translate}}</a>
+              <ul class="collapse list-unstyled" id="Transaction">
+                <li>
+                  <a routerLink="/Types">{{'nav.ordertypes' | translate}}</a>
+              </li>
+                <li>
+                    <a routerLink="/Orders">{{'nav.orders' | translate}}</a>
+                </li>
+                <li>
+                  <a routerLink="/Balances">{{'nav.balance' | translate}}</a>
+              </li>
+              </ul>
+            </li>
+            <li>
+                <a routerLink="/Reports">{{'nav.reports' | translate}}</a>
+            </li>
+     
+	        </ul>
+
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with 
+              <i class="icon-heart" aria-hidden="true"></i> by
+               <a href="http://www.almostakbal-technology.com/" target="_blank">Almostakbal.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="">
+        <nav class="navbar navbar-expand-lg bg-light" *ngIf="currentUser" >
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button> 
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" 
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+             aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+          
+                <li class="nav-item">
+                  <select class="form-control" #langSelect (change)="changeLang(langSelect.value)">
+                    <option *ngFor="let lang of translate.getLangs()" [value]="lang"
+                      [selected]="lang === translate.currentLang">
+                      {{ lang }}</option>
+                  </select>
+                </li>
+                <li class="nav-item">
+                  <span class="nav-link" >{{currentUser.fullname}}</span>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" (click)="Logout()" >Log out <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+<app-main></app-main>
+  </div>
+		</div>
+
+  </body>
+</html>
