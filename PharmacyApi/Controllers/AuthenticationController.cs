@@ -67,7 +67,7 @@ namespace PharmacyApi.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     roles = userRoles,
                     expiration = token.ValidTo
-                }); 
+                });
             }
             return Unauthorized();
         }
@@ -83,25 +83,34 @@ namespace PharmacyApi.Controllers
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.UserName
+                UserName = model.UserName,
+
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
             if (model.Role == "Admin")
             {
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
                 await userManager.AddToRoleAsync(user, UserRoles.Admin);
             }
             else if (model.Role == "User")
             {
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
                 await userManager.AddToRoleAsync(user, UserRoles.User);
             }
             else if (model.Role == "Clerk")
             {
+                if (!await roleManager.RoleExistsAsync(UserRoles.Clerk))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Clerk));
                 await userManager.AddToRoleAsync(user, UserRoles.Clerk);
             }
             else if (model.Role == "DataEntry")
             {
+                if (!await roleManager.RoleExistsAsync(UserRoles.DataEntry))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.DataEntry));
                 await userManager.AddToRoleAsync(user, UserRoles.DataEntry);
             }
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
@@ -138,7 +147,6 @@ namespace PharmacyApi.Controllers
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
             if (!await roleManager.RoleExistsAsync(UserRoles.User))
                 await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
-
             if (await roleManager.RoleExistsAsync(UserRoles.Admin))
             {
                 await userManager.AddToRoleAsync(user, UserRoles.Admin);
