@@ -2,21 +2,21 @@
 
 namespace PharmacyApi.Migrations
 {
-    public partial class reyr : Migration
+    public partial class frtyytssdd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "pharmacyName",
-                table: "Employee",
+                name: "Img",
+                table: "Drug",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "pharmacyName",
-                table: "Employee");
+                name: "Img",
+                table: "Drug");
         }
     }
 }

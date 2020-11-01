@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201027154428_reyr")]
-    partial class reyr
+    [Migration("20201101103455_frtyyt")]
+    partial class frtyyt
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -277,46 +277,7 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("BarCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Exp_Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("GenericName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsChecked")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("License")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pack")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Prod_Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Quentity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReOrderLevel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Size")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Strength")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TheraGroupID")

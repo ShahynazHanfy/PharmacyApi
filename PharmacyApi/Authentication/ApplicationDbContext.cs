@@ -24,7 +24,7 @@ namespace PharmacyApi.Authentication
         //public virtual DbSet<Customer> Customer { get; set; }
 
         public virtual DbSet<Drug> Drug { get; set; }
-
+        public virtual DbSet<DrugDetails> DrugDetails { get; set; }
         public virtual DbSet<DrugInteraction> DrugInteraction { get; set; }
         public virtual DbSet<Firm> Firm { get; set; }
         public virtual DbSet<Form> Form { get; set; }

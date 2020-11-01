@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PharmacyApi.Migrations
 {
-    public partial class re : Migration
+    public partial class frtyyt : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -249,6 +249,7 @@ namespace PharmacyApi.Migrations
                     Telephone = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
+                    pharmacyName = table.Column<string>(nullable: true),
                     pharmacyID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -444,21 +445,8 @@ namespace PharmacyApi.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Code = table.Column<string>(nullable: true),
                     TradeName = table.Column<string>(nullable: true),
                     GenericName = table.Column<string>(nullable: true),
-                    Strength = table.Column<string>(nullable: true),
-                    Pack = table.Column<string>(nullable: true),
-                    License = table.Column<string>(nullable: true),
-                    Size = table.Column<string>(nullable: true),
-                    Img = table.Column<string>(nullable: true),
-                    ReOrderLevel = table.Column<string>(nullable: true),
-                    BarCode = table.Column<string>(nullable: true),
-                    IsActive = table.Column<bool>(nullable: false),
-                    Quentity = table.Column<int>(nullable: false),
-                    Prod_Date = table.Column<DateTime>(nullable: false),
-                    Exp_Date = table.Column<DateTime>(nullable: false),
-                    IsChecked = table.Column<bool>(nullable: false),
                     TheraSubGroupID = table.Column<int>(nullable: false),
                     formID = table.Column<int>(nullable: false),
                     firmID = table.Column<int>(nullable: false),

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PharmacyApi.Authentication;
 
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201101103745_frtyytss")]
+    partial class frtyytss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -278,9 +280,6 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("GenericName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("TheraGroupID")
                         .HasColumnType("int");
 
@@ -339,6 +338,9 @@ namespace PharmacyApi.Migrations
 
                     b.Property<DateTime>("Exp_Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -926,7 +928,7 @@ namespace PharmacyApi.Migrations
             modelBuilder.Entity("PharmacyApi.Models.DrugDetails", b =>
                 {
                     b.HasOne("PharmacyApi.Models.Drug", "drug")
-                        .WithMany("drugDetails")
+                        .WithMany()
                         .HasForeignKey("drugID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

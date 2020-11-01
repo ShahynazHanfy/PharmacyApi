@@ -86,10 +86,35 @@ namespace PharmacyApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Drug>> PostDrug(Drug drug)
         {
-            _context.Drug.Add(drug);
-            await _context.SaveChangesAsync();
+            
+                _context.Drug.Add(drug);
+            var drugID = await _context.SaveChangesAsync();
+         
+                //var lst = drug.drugDetails.ToList();
 
-            return CreatedAtAction("GetDrug", new { id = drug.ID }, drug);
+                //foreach (var item in lst)
+                //{
+                    DrugDetails drugDetails = new DrugDetails();
+                    drugDetails.Exp_Date = drug.drugDetails.Exp_Date;
+                    drugDetails.Code = drug.drugDetails.Code;
+                    drugDetails.Prod_Date = drug.drugDetails.Prod_Date;
+                    drugDetails.BarCode = drug.drugDetails.BarCode;
+                    drugDetails.Quentity = drug.drugDetails.Quentity;
+                    drugDetails.ReOrderLevel = drug.drugDetails.ReOrderLevel;
+                    drugDetails.Size = drug.drugDetails.Size;
+                    drugDetails.Strength = drug.drugDetails.Strength;
+                    drugDetails.Pack = drug.drugDetails.Pack;
+                    drugDetails.License = drug.drugDetails.License;
+                    drugDetails.IsActive = drug.drugDetails.IsActive;
+                    drugDetails.IsChecked = drug.drugDetails.IsChecked;
+                    drugDetails.drugID = drugID;
+                    drugDetails.pharmacyID = drug.drugDetails.pharmacyID;
+
+                    _context.DrugDetails.Add(drugDetails);
+                   await _context.SaveChangesAsync();
+               // }
+                return Ok();
+            
         }
 
         // DELETE: api/Drugs/5
