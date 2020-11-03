@@ -106,6 +106,7 @@ namespace PharmacyApi.Controllers
                     drugDetails.Pack = drug.drugDetails.Pack;
                     drugDetails.License = drug.drugDetails.License;
                     drugDetails.IsActive = drug.drugDetails.IsActive;
+                    drugDetails.Price = drug.drugDetails.Price;
                     drugDetails.IsChecked = drug.drugDetails.IsChecked;
                     drugDetails.drugID = drugID;
                     drugDetails.pharmacyID = drug.drugDetails.pharmacyID;

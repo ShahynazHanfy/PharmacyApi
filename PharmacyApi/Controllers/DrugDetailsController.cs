@@ -25,34 +25,39 @@ namespace PharmacyApi.Controllers
 
         // GET: api/DrugDetails
         [HttpGet]
-        [Route("GetDrugDetails")]
-        public IEnumerable<DrugsDetailsDTO> GetDrugDetails()
+        [Route("GetDrugDetails/{pharmacyId}")]
+        public IEnumerable<DrugsDetailsDTO> GetDrugDetailsByPharmacyId(int pharmacyId)
         {
-            var drugsDetails = _context.DrugDetails.FirstOrDefault();
-            var drugs =  _context.Drug.FirstOrDefault();
-            var  Details = _context.DrugDetails.Select(d=>new DrugsDetailsDTO
-            {
-                TradeName = drugs.TradeName,
-                GenericName = drugs.GenericName,
-                Img = drugs.Img,
-                Strength = drugsDetails.Strength,
-                BarCode = drugsDetails.BarCode,
-                Code = drugsDetails.Code,
-                Exp_Date = drugsDetails.Exp_Date,
-                Prod_Date = drugsDetails.Prod_Date,
-                IsActive = drugsDetails.IsActive,
-                IsChecked = drugsDetails.IsChecked,
-                License = drugsDetails.License,
-                Pack = drugsDetails.Pack,
-                Quentity = drugsDetails.Quentity,
-                ReOrderLevel = drugsDetails.ReOrderLevel,
-                Size = drugsDetails.Size
+            var drugsDetails = _context.DrugDetails.ToList();
+            var drugs = _context.Drug.ToList();
 
-            }).ToList();
-            return Details;
+            var lstDrugs = (from drug in drugs
+                            join details in drugsDetails on drug.ID equals details.drugID
+                            where details.pharmacyID == pharmacyId
+                            select new DrugsDetailsDTO
+                            {
+                                TradeName = drug.TradeName,
+                                GenericName = drug.GenericName,
+                                Img = drug.Img,
+                                Strength = details.Strength,
+                                BarCode = details.BarCode,
+                                Code = details.Code,
+                                Exp_Date = details.Exp_Date,
+                                Prod_Date = details.Prod_Date,
+                                IsActive = details.IsActive,
+                                Price = details.Price,
+                                IsChecked = details.IsChecked,
+                                License = details.License,
+                                Pack = details.Pack,
+                                Quentity = details.Quentity,
+                                ReOrderLevel = details.ReOrderLevel,
+                                Size = details.Size,
+                            }).ToList();
+            return lstDrugs;
+
             //return await _context.DrugDetails.ToListAsync();
         }
-
+    
         // GET: api/DrugDetails/5
         [HttpGet("{id}")]
         public async Task<ActionResult<DrugDetails>> GetDrugDetails(int id)
@@ -103,10 +108,10 @@ namespace PharmacyApi.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<DrugDetails>> PostDrugDetails(DrugDetails drugDetails)
+        public  ActionResult<DrugDetails> PostDrugDetails(DrugDetails drugDetails)
         {
             _context.DrugDetails.Add(drugDetails);
-            await _context.SaveChangesAsync();
+             _context.SaveChanges();
 
             return CreatedAtAction("GetDrugDetails", new { id = drugDetails.ID }, drugDetails);
         }

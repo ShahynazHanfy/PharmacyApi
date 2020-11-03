@@ -12,6 +12,7 @@ namespace PharmacyApi.Models
         public int ID { get; set; }
         public string Strength { get; set; }
         public string Pack { get; set; }
+        public string Price { get; set; }
         public string License { get; set; }
         public string Size { get; set; }
         public string ReOrderLevel { get; set; }

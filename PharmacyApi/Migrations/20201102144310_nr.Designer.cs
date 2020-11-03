@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201101104231_frtyytssdd")]
-    partial class frtyytssdd
+    [Migration("20201102144310_nr")]
+    partial class nr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -342,9 +342,6 @@ namespace PharmacyApi.Migrations
                     b.Property<DateTime>("Exp_Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -355,6 +352,9 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pack")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Prod_Date")
@@ -380,7 +380,8 @@ namespace PharmacyApi.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("drugID");
+                    b.HasIndex("drugID")
+                        .IsUnique();
 
                     b.HasIndex("pharmacyID");
 
@@ -931,8 +932,8 @@ namespace PharmacyApi.Migrations
             modelBuilder.Entity("PharmacyApi.Models.DrugDetails", b =>
                 {
                     b.HasOne("PharmacyApi.Models.Drug", "drug")
-                        .WithMany()
-                        .HasForeignKey("drugID")
+                        .WithOne("drugDetails")
+                        .HasForeignKey("PharmacyApi.Models.DrugDetails", "drugID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

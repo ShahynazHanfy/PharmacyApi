@@ -352,6 +352,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Pack")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("Prod_Date")
                         .HasColumnType("datetime2");
 
@@ -375,7 +378,8 @@ namespace PharmacyApi.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("drugID");
+                    b.HasIndex("drugID")
+                        .IsUnique();
 
                     b.HasIndex("pharmacyID");
 
@@ -926,8 +930,8 @@ namespace PharmacyApi.Migrations
             modelBuilder.Entity("PharmacyApi.Models.DrugDetails", b =>
                 {
                     b.HasOne("PharmacyApi.Models.Drug", "drug")
-                        .WithMany("drugDetails")
-                        .HasForeignKey("drugID")
+                        .WithOne("drugDetails")
+                        .HasForeignKey("PharmacyApi.Models.DrugDetails", "drugID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

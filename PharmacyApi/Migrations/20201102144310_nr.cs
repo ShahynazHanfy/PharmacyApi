@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PharmacyApi.Migrations
 {
-    public partial class frtyyt : Migration
+    public partial class nr : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -447,6 +447,7 @@ namespace PharmacyApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TradeName = table.Column<string>(nullable: true),
                     GenericName = table.Column<string>(nullable: true),
+                    Img = table.Column<string>(nullable: true),
                     TheraSubGroupID = table.Column<int>(nullable: false),
                     formID = table.Column<int>(nullable: false),
                     firmID = table.Column<int>(nullable: false),
@@ -498,6 +499,45 @@ namespace PharmacyApi.Migrations
                         name: "FK_Drug_Unit_unitID",
                         column: x => x.unitID,
                         principalTable: "Unit",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DrugDetails",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Strength = table.Column<string>(nullable: true),
+                    Pack = table.Column<string>(nullable: true),
+                    Price = table.Column<string>(nullable: true),
+                    License = table.Column<string>(nullable: true),
+                    Size = table.Column<string>(nullable: true),
+                    ReOrderLevel = table.Column<string>(nullable: true),
+                    BarCode = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Quentity = table.Column<int>(nullable: false),
+                    Prod_Date = table.Column<DateTime>(nullable: false),
+                    Exp_Date = table.Column<DateTime>(nullable: false),
+                    IsChecked = table.Column<bool>(nullable: false),
+                    Code = table.Column<string>(nullable: true),
+                    drugID = table.Column<int>(nullable: false),
+                    pharmacyID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DrugDetails", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_DrugDetails_Drug_drugID",
+                        column: x => x.drugID,
+                        principalTable: "Drug",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DrugDetails_Pharmacy_pharmacyID",
+                        column: x => x.pharmacyID,
+                        principalTable: "Pharmacy",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -664,6 +704,17 @@ namespace PharmacyApi.Migrations
                 column: "unitID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DrugDetails_drugID",
+                table: "DrugDetails",
+                column: "drugID",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DrugDetails_pharmacyID",
+                table: "DrugDetails",
+                column: "pharmacyID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DrugInteraction_DrugId",
                 table: "DrugInteraction",
                 column: "DrugId");
@@ -740,6 +791,9 @@ namespace PharmacyApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "DrugDetails");
 
             migrationBuilder.DropTable(
                 name: "DrugInteraction");
