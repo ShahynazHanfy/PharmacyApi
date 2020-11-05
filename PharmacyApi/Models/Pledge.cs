@@ -21,6 +21,6 @@ namespace PharmacyApi.Models
         public bool IsActive { get; set; }
 
         public string location { get; set; }
-        public List<Order> orders { get; set; }
+        //public List<Order> orders { get; set; }
     }
 }

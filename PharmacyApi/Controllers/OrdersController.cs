@@ -80,8 +80,10 @@ namespace PharmacyApi.Controllers
         [HttpPost]
         public async Task<IActionResult> PostOrder(Order order)
         {
+
+            order.supplierID = 1;
             _context.Order.Add(order);
-            var orderID = _context.SaveChanges();
+            var orderID = await _context.SaveChangesAsync();
             var lst = order.orderDetailList.ToList();
             foreach (var item in lst)
             {

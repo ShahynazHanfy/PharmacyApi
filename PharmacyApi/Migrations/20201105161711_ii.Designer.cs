@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PharmacyApi.Authentication;
 
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201105161711_ii")]
+    partial class ii
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -524,6 +526,8 @@ namespace PharmacyApi.Migrations
 
                     b.HasIndex("pharmacyDeliverdID");
 
+                    b.HasIndex("pledgeID");
+
                     b.HasIndex("supplierID");
 
                     b.ToTable("Order");
@@ -965,6 +969,10 @@ namespace PharmacyApi.Migrations
                         .HasForeignKey("pharmacyDeliverdID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PharmacyApi.Models.Pledge", null)
+                        .WithMany("orders")
+                        .HasForeignKey("pledgeID");
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()
