@@ -79,7 +79,15 @@ namespace PharmacyApi.Controllers
 
             return NoContent();
         }
+        [HttpPost]
+        [Route("PostDrugName")]
+        public async Task<ActionResult<Drug>> PostDrugName(Drug Drug)
+        {
+            _context.Drug.Add(Drug);
+            await _context.SaveChangesAsync();
 
+            return CreatedAtAction("GetDrug", new { id = Drug.ID }, Drug);
+        }
         // POST: api/Drugs
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
