@@ -12,9 +12,15 @@ namespace PharmacyApi.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public int drugID { get; set; }
+        public int? drugID { get; set; }
         [ForeignKey("drugID")]
         public Drug drug { get; set; }
+
+        public int? OrderId { get; set; }
+
+        [ForeignKey("OrderId")]
+        public Order order { get; set; }
+
         public int Quentity { get; set; }
 
         [Column(TypeName = "decimal(18,2)")]
@@ -22,9 +28,6 @@ namespace PharmacyApi.Models
         public DateTime Prod_Date { get; set; }
         public DateTime Exp_Date { get; set; }
 
-        public int OrderId { get; set; }
-        [ForeignKey("OrderId")]
-        public Order order { get; set; }
-
+   
     }
 }

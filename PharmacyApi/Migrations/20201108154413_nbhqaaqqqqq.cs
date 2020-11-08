@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PharmacyApi.Migrations
 {
-    public partial class nr : Migration
+    public partial class nbhqaaqqqqq : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -282,17 +282,11 @@ namespace PharmacyApi.Migrations
                 {
                     table.PrimaryKey("PK_Order", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Order_Pharmacy_pharmacyDeliverdID",
-                        column: x => x.pharmacyDeliverdID,
+                        name: "FK_Order_Pharmacy_pharmacyID",
+                        column: x => x.pharmacyID,
                         principalTable: "Pharmacy",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Order_Pledge_pledgeID",
-                        column: x => x.pledgeID,
-                        principalTable: "Pledge",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Order_Supplier_supplierID",
                         column: x => x.supplierID,
@@ -571,11 +565,11 @@ namespace PharmacyApi.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     drugID = table.Column<int>(nullable: false),
+                    OrderId = table.Column<int>(nullable: false),
                     Quentity = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Prod_Date = table.Column<DateTime>(nullable: false),
-                    Exp_Date = table.Column<DateTime>(nullable: false),
-                    OrderId = table.Column<int>(nullable: false)
+                    Exp_Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -725,14 +719,9 @@ namespace PharmacyApi.Migrations
                 column: "pharmacyID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_pharmacyDeliverdID",
+                name: "IX_Order_pharmacyID",
                 table: "Order",
-                column: "pharmacyDeliverdID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Order_pledgeID",
-                table: "Order",
-                column: "pledgeID");
+                column: "pharmacyID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_supplierID",
@@ -805,6 +794,9 @@ namespace PharmacyApi.Migrations
                 name: "OrderDetails");
 
             migrationBuilder.DropTable(
+                name: "Pledge");
+
+            migrationBuilder.DropTable(
                 name: "PurchasedItem");
 
             migrationBuilder.DropTable(
@@ -845,9 +837,6 @@ namespace PharmacyApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pharmacy");
-
-            migrationBuilder.DropTable(
-                name: "Pledge");
 
             migrationBuilder.DropTable(
                 name: "Supplier");

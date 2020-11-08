@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201102151650_bvcx")]
-    partial class bvcx
+    [Migration("20201108154726_nbhqaaqqqqqaaaaaaaa")]
+    partial class nbhqaaqqqqqaaaaaaaa
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -524,9 +524,7 @@ namespace PharmacyApi.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("pharmacyDeliverdID");
-
-                    b.HasIndex("pledgeID");
+                    b.HasIndex("pharmacyID");
 
                     b.HasIndex("supplierID");
 
@@ -964,15 +962,11 @@ namespace PharmacyApi.Migrations
 
             modelBuilder.Entity("PharmacyApi.Models.Order", b =>
                 {
-                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacyDelivered")
+                    b.HasOne("PharmacyApi.Models.Pharmacy", null)
                         .WithMany("orders")
-                        .HasForeignKey("pharmacyDeliverdID")
+                        .HasForeignKey("pharmacyID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("PharmacyApi.Models.Pledge", null)
-                        .WithMany("orders")
-                        .HasForeignKey("pledgeID");
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()

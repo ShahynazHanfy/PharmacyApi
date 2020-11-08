@@ -27,7 +27,7 @@ namespace PharmacyApi.Models
         public string Description { get; set; }
         public string Comments { get; set; }
        
-        public int supplierID { get; set; }
+        public int? supplierID { get; set; }
         [ForeignKey("supplierID")]
         public Supplier Supplier { get; set; }
 
@@ -39,7 +39,8 @@ namespace PharmacyApi.Models
         //public List<PurchasedItem> PurchasedItems { get; set; }
 
         public int pharmacyDeliverdID { get; set; }
-            [ForeignKey("pharmacyDeliverdID")]
+        [ForeignKey("pharmacyDeliverdID")]
+        [NotMapped]
         public Pharmacy pharmacyDelivered { get; set; }
 
         public int? pledgeID { get; set; }
