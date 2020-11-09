@@ -33,7 +33,7 @@ namespace PharmacyApi.Controllers
 
             var lstDrugs = (from drug in drugs
                             join details in drugsDetails on drug.ID equals details.drugID
-                            where details.pharmacyID == pharmacyId
+                            where details.pharmacyLoggedInID == pharmacyId
                             select new DrugsDetailsDTO
                             {
                                 TradeName = drug.TradeName,

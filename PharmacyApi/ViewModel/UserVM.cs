@@ -15,8 +15,8 @@ namespace PharmacyApi.ViewModels
         public string Role { get; set; }
         public string Password { get; set; }
         public string PharmacyName { get; set; }
-        public int pharmacyID { get; set; }
-        [ForeignKey("pharmacyID")]
-        public Pharmacy pharmacy { get; set; }
+        public int pharmacyLoggedInID { get; set; }
+        [ForeignKey("pharmacyLoggedInID")]
+        public Pharmacy pharmacyLoggedIn { get; set; }
     }
 }

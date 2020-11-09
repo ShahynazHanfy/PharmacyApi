@@ -2,7 +2,7 @@
 
 namespace PharmacyApi.Migrations
 {
-    public partial class nbhqaaqqqqqaaaaaaaa : Migration
+    public partial class nbvww : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

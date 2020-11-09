@@ -70,7 +70,7 @@ namespace PharmacyApi.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     roles = userRoles,
                     expiration = token.ValidTo,
-                    user.pharmacyID,
+                    user.pharmacyLoggedInID,
                     
                 });
             }
@@ -89,7 +89,7 @@ namespace PharmacyApi.Controllers
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.UserName,
-                pharmacyID=model.pharmacyID,
+                pharmacyLoggedInID=model.pharmacyLoggedInID,
             };
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)

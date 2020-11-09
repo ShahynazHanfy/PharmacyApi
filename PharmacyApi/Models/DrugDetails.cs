@@ -27,9 +27,9 @@ namespace PharmacyApi.Models
         [ForeignKey("drugID")]
         public Drug drug { get; set; }
 
-        public int pharmacyID { get; set; }
-        [ForeignKey("pharmacyID")]
-        public Pharmacy pharmacy { get; set; }
+        public int pharmacyLoggedInID { get; set; }
+        [ForeignKey("pharmacyLoggedInID")]
+        public Pharmacy pharmacyLoggedIn { get; set; }
     }
 }
 

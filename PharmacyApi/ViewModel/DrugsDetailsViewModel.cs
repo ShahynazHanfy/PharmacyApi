@@ -24,6 +24,6 @@ namespace PharmacyApi.ViewModel
         public bool IsChecked { get; set; }
         public string Code { get; set; }
         public int drugID { get; set; }
-        public int pharmacyID { get; set; }
+        public int pharmacyLoggedInID { get; set; }
     }
 }

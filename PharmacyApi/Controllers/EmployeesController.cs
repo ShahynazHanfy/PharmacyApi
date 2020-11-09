@@ -31,7 +31,7 @@ namespace PharmacyApi.Controllers
                 Name = item.Name,
                 Email = item.Email,
                 Address = item.Address,
-                Telephone = item.Telephone,pharmacyID=(int)item.pharmacyID,
+                Telephone = item.Telephone,pharmacyLoggedInID=(int)item.pharmacyID,
                 ID=item.ID,
                 pharmacyName = _context.Pharmacy.Where(a => a.ID == item.pharmacyID).FirstOrDefault().Name
             }).ToListAsync();

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PharmacyApi.Migrations
 {
-    public partial class nbhqaaqqqqq : Migration
+    public partial class nbv : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -226,14 +226,14 @@ namespace PharmacyApi.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    pharmacyID = table.Column<int>(nullable: false)
+                    pharmacyLoggedInID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUsers_Pharmacy_pharmacyID",
-                        column: x => x.pharmacyID,
+                        name: "FK_AspNetUsers_Pharmacy_pharmacyLoggedInID",
+                        column: x => x.pharmacyLoggedInID,
                         principalTable: "Pharmacy",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -273,26 +273,28 @@ namespace PharmacyApi.Migrations
                     Number = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Comments = table.Column<string>(nullable: true),
-                    supplierID = table.Column<int>(nullable: false),
-                    pharmacyID = table.Column<int>(nullable: false),
-                    pharmacyDeliverdID = table.Column<int>(nullable: false),
-                    pledgeID = table.Column<int>(nullable: true)
+                    supplierID = table.Column<int>(nullable: true),
+                    pharmacySourceID = table.Column<int>(nullable: false),
+                    pharmacyLoggedInID = table.Column<int>(nullable: false),
+                    pharmacyTargetID = table.Column<int>(nullable: false),
+                    pledgeID = table.Column<int>(nullable: true),
+                    PharmacyID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Order", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Order_Pharmacy_pharmacyID",
-                        column: x => x.pharmacyID,
+                        name: "FK_Order_Pharmacy_PharmacyID",
+                        column: x => x.PharmacyID,
                         principalTable: "Pharmacy",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Order_Supplier_supplierID",
                         column: x => x.supplierID,
                         principalTable: "Supplier",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -517,7 +519,7 @@ namespace PharmacyApi.Migrations
                     IsChecked = table.Column<bool>(nullable: false),
                     Code = table.Column<string>(nullable: true),
                     drugID = table.Column<int>(nullable: false),
-                    pharmacyID = table.Column<int>(nullable: false)
+                    pharmacyLoggedInID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -529,8 +531,8 @@ namespace PharmacyApi.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DrugDetails_Pharmacy_pharmacyID",
-                        column: x => x.pharmacyID,
+                        name: "FK_DrugDetails_Pharmacy_pharmacyLoggedInID",
+                        column: x => x.pharmacyLoggedInID,
                         principalTable: "Pharmacy",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -564,8 +566,8 @@ namespace PharmacyApi.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    drugID = table.Column<int>(nullable: false),
-                    OrderId = table.Column<int>(nullable: false),
+                    drugID = table.Column<int>(nullable: true),
+                    OrderId = table.Column<int>(nullable: true),
                     Quentity = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Prod_Date = table.Column<DateTime>(nullable: false),
@@ -579,13 +581,13 @@ namespace PharmacyApi.Migrations
                         column: x => x.OrderId,
                         principalTable: "Order",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_OrderDetails_Drug_drugID",
                         column: x => x.drugID,
                         principalTable: "Drug",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -658,9 +660,9 @@ namespace PharmacyApi.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_pharmacyID",
+                name: "IX_AspNetUsers_pharmacyLoggedInID",
                 table: "AspNetUsers",
-                column: "pharmacyID");
+                column: "pharmacyLoggedInID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Drug_TheraGroupID",
@@ -704,9 +706,9 @@ namespace PharmacyApi.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_DrugDetails_pharmacyID",
+                name: "IX_DrugDetails_pharmacyLoggedInID",
                 table: "DrugDetails",
-                column: "pharmacyID");
+                column: "pharmacyLoggedInID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DrugInteraction_DrugId",
@@ -719,9 +721,9 @@ namespace PharmacyApi.Migrations
                 column: "pharmacyID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Order_pharmacyID",
+                name: "IX_Order_PharmacyID",
                 table: "Order",
-                column: "pharmacyID");
+                column: "PharmacyID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_supplierID",

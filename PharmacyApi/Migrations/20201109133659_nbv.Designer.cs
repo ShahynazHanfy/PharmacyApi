@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201108154413_nbhqaaqqqqq")]
-    partial class nbhqaaqqqqq
+    [Migration("20201109133659_nbv")]
+    partial class nbv
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -204,7 +204,7 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.Property<int>("pharmacyID")
+                    b.Property<int>("pharmacyLoggedInID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -217,7 +217,7 @@ namespace PharmacyApi.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("pharmacyID");
+                    b.HasIndex("pharmacyLoggedInID");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -375,7 +375,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("drugID")
                         .HasColumnType("int");
 
-                    b.Property<int>("pharmacyID")
+                    b.Property<int>("pharmacyLoggedInID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -383,7 +383,7 @@ namespace PharmacyApi.Migrations
                     b.HasIndex("drugID")
                         .IsUnique();
 
-                    b.HasIndex("pharmacyID");
+                    b.HasIndex("pharmacyLoggedInID");
 
                     b.ToTable("DrugDetails");
                 });
@@ -510,21 +510,27 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
-                    b.Property<int>("pharmacyDeliverdID")
+                    b.Property<int?>("PharmacyID")
                         .HasColumnType("int");
 
-                    b.Property<int>("pharmacyID")
+                    b.Property<int>("pharmacyLoggedInID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pharmacySourceID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pharmacyTargetID")
                         .HasColumnType("int");
 
                     b.Property<int?>("pledgeID")
                         .HasColumnType("int");
 
-                    b.Property<int>("supplierID")
+                    b.Property<int?>("supplierID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("pharmacyID");
+                    b.HasIndex("PharmacyID");
 
                     b.HasIndex("supplierID");
 
@@ -541,7 +547,7 @@ namespace PharmacyApi.Migrations
                     b.Property<DateTime>("Exp_Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -553,7 +559,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("Quentity")
                         .HasColumnType("int");
 
-                    b.Property<int>("drugID")
+                    b.Property<int?>("drugID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -722,7 +728,7 @@ namespace PharmacyApi.Migrations
 
             modelBuilder.Entity("PharmacyApi.Models.Supplier", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int?>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -877,9 +883,9 @@ namespace PharmacyApi.Migrations
 
             modelBuilder.Entity("PharmacyApi.Authentication.ApplicationUser", b =>
                 {
-                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacy")
+                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacyLoggedIn")
                         .WithMany()
-                        .HasForeignKey("pharmacyID")
+                        .HasForeignKey("pharmacyLoggedInID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -935,9 +941,9 @@ namespace PharmacyApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacy")
+                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacyLoggedIn")
                         .WithMany()
-                        .HasForeignKey("pharmacyID")
+                        .HasForeignKey("pharmacyLoggedInID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -964,30 +970,22 @@ namespace PharmacyApi.Migrations
                 {
                     b.HasOne("PharmacyApi.Models.Pharmacy", null)
                         .WithMany("orders")
-                        .HasForeignKey("pharmacyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PharmacyID");
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()
-                        .HasForeignKey("supplierID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("supplierID");
                 });
 
             modelBuilder.Entity("PharmacyApi.Models.OrderDetail", b =>
                 {
-                    b.HasOne("PharmacyApi.Models.Order", null)
+                    b.HasOne("PharmacyApi.Models.Order", "order")
                         .WithMany("orderDetailList")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("PharmacyApi.Models.Drug", "drug")
                         .WithMany()
-                        .HasForeignKey("drugID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("drugID");
                 });
 
             modelBuilder.Entity("PharmacyApi.Models.PurchasedItem", b =>

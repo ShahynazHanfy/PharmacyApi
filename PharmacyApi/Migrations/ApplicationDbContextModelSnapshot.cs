@@ -202,7 +202,7 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.Property<int>("pharmacyID")
+                    b.Property<int>("pharmacyLoggedInID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -215,7 +215,7 @@ namespace PharmacyApi.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.HasIndex("pharmacyID");
+                    b.HasIndex("pharmacyLoggedInID");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -373,7 +373,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("drugID")
                         .HasColumnType("int");
 
-                    b.Property<int>("pharmacyID")
+                    b.Property<int>("pharmacyLoggedInID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -381,7 +381,7 @@ namespace PharmacyApi.Migrations
                     b.HasIndex("drugID")
                         .IsUnique();
 
-                    b.HasIndex("pharmacyID");
+                    b.HasIndex("pharmacyLoggedInID");
 
                     b.ToTable("DrugDetails");
                 });
@@ -508,10 +508,16 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
-                    b.Property<int>("pharmacyDeliverdID")
+                    b.Property<int?>("PharmacyID")
                         .HasColumnType("int");
 
-                    b.Property<int>("pharmacyID")
+                    b.Property<int>("pharmacyLoggedInID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pharmacySourceID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("pharmacyTargetID")
                         .HasColumnType("int");
 
                     b.Property<int?>("pledgeID")
@@ -522,7 +528,7 @@ namespace PharmacyApi.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("pharmacyID");
+                    b.HasIndex("PharmacyID");
 
                     b.HasIndex("supplierID");
 
@@ -875,9 +881,9 @@ namespace PharmacyApi.Migrations
 
             modelBuilder.Entity("PharmacyApi.Authentication.ApplicationUser", b =>
                 {
-                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacy")
+                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacyLoggedIn")
                         .WithMany()
-                        .HasForeignKey("pharmacyID")
+                        .HasForeignKey("pharmacyLoggedInID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -933,9 +939,9 @@ namespace PharmacyApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacy")
+                    b.HasOne("PharmacyApi.Models.Pharmacy", "pharmacyLoggedIn")
                         .WithMany()
-                        .HasForeignKey("pharmacyID")
+                        .HasForeignKey("pharmacyLoggedInID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -962,9 +968,7 @@ namespace PharmacyApi.Migrations
                 {
                     b.HasOne("PharmacyApi.Models.Pharmacy", null)
                         .WithMany("orders")
-                        .HasForeignKey("pharmacyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PharmacyID");
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()

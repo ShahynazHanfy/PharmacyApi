@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PharmacyApi.Authentication;
 using PharmacyApi.Models;
+using PharmacyApi.ViewModel;
 
 namespace PharmacyApi.Controllers
 {
@@ -21,13 +22,37 @@ namespace PharmacyApi.Controllers
             _context = context;
         }
 
+
+
         // GET: api/Orders
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrder()
+        [Route("GetOrderByPharmacyId/{pharmacyId}")]
+        public ActionResult<IEnumerable<OrderVM>> GetOrderByPharmacyId(int pharmacyId)
         {
-            return await _context.Order.ToListAsync();
-        }
+            var lstOrders = _context.Order.ToList();
+            var lstOrderDetails = _context.OrderDetails.ToList();
+            var lstAllOrders = (from ordr in lstOrders
+                                join detail in lstOrderDetails on ordr.ID equals detail.OrderId
+                                where ordr.pharmacyLoggedInID == pharmacyId
+                              
+                                select new OrderVM
+                                {
+                                    OrderId = ordr.ID,
+                                    ListDetails = (List<OrderDetailVM>)ordr.orderDetailList.Select(item => new OrderDetailVM
+                                    {
+                                      //  SupplierName = ordr.Supplier.Name,
+                                        DrugName = _context.Drug.Where(a=>a.ID == detail.drugID).FirstOrDefault().TradeName
+                                    }).ToList()
 
+                                }).GroupBy(a=>a.OrderId).ToList();
+            List<OrderVM> list = new List<OrderVM>();
+            foreach (var item in lstAllOrders)
+            {
+                list.Add( item.FirstOrDefault());
+            }
+            return list;
+        }
+    
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
@@ -83,8 +108,28 @@ namespace PharmacyApi.Controllers
             //order.pledgeID = 2;
             //order.supplierID = 1;
             //order.pharmacyID = 1;
+            var supplierID = _context.SaveChanges();
+           // Supplier supplier = new Supplier();
+           // order.supplierID = supplier.ID;
+
             _context.Order.Add(order);
-             var orderID = _context.SaveChanges();
+            if (order.supplierID == 0)
+            {
+                Supplier supplier = new Supplier();
+                order.supplierID = supplier.ID;
+
+            }
+            //else if (order. == 0)
+            //{
+            //    Supplier supplier = new Supplier();
+            //    order.supplierID = supplier.ID;
+
+            //}
+            else
+            {
+                var orderID = _context.SaveChanges();
+
+            }
             //var lstOrders = _context.Order.AsEnumerable();
             //var orderObj = lstOrders.Max();
             //int orderID = orderObj.ID;
@@ -92,6 +137,7 @@ namespace PharmacyApi.Controllers
             foreach (var item in lst)
             {
                 OrderDetail orderDetails = new OrderDetail();
+
                 orderDetails.Quentity = item.Quentity;
                 orderDetails.drugID = item.drugID;
                 orderDetails.Exp_Date = item.Exp_Date;

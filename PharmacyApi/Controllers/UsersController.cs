@@ -58,7 +58,7 @@ namespace PharmacyApi.Controllers
                             Email = User.Email,
                             Role = role.Name,
                             UserName = User.UserName,
-                            PharmacyName = _context.Pharmacy.Where(a=>a.ID ==  User.pharmacyID).FirstOrDefault().Name
+                            PharmacyName = _context.Pharmacy.Where(a=>a.ID ==  User.pharmacyLoggedInID).FirstOrDefault().Name
                         };
                         usersWithRoles.Add(usersWithRolesDTO);
                     }

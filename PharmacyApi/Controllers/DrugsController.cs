@@ -117,7 +117,7 @@ namespace PharmacyApi.Controllers
                     drugDetails.Price = drug.drugDetails.Price;
                     drugDetails.IsChecked = drug.drugDetails.IsChecked;
                     drugDetails.drugID = drugID;
-                    drugDetails.pharmacyID = drug.drugDetails.pharmacyID;
+                    drugDetails.pharmacyLoggedInID = drug.drugDetails.pharmacyLoggedInID;
 
                     _context.DrugDetails.Add(drugDetails);
                    await _context.SaveChangesAsync();

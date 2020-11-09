@@ -31,17 +31,27 @@ namespace PharmacyApi.Models
         [ForeignKey("supplierID")]
         public Supplier Supplier { get; set; }
 
-        public int pharmacyID { get; set; }
-        [ForeignKey("pharmacyID")]
+        //public int pharmacyID { get; set; }
+        //[ForeignKey("pharmacyID")]
+        //[NotMapped]
+        //public Pharmacy pharmacy { get; set; }
+
+        public int pharmacySourceID { get; set; }
+        [ForeignKey("pharmacySourceID")]
         [NotMapped]
-        public Pharmacy pharmacy { get; set; }
+        public Pharmacy pharmacySource { get; set; }
+
+        public int pharmacyLoggedInID { get; set; }
+        [ForeignKey("pharmacyLoggedInID")]
+        [NotMapped]
+        public Pharmacy pharmacyLoggedIn { get; set; }
 
         //public List<PurchasedItem> PurchasedItems { get; set; }
 
-        public int pharmacyDeliverdID { get; set; }
-        [ForeignKey("pharmacyDeliverdID")]
+        public int pharmacyTargetID { get; set; }
+        [ForeignKey("pharmacyTargetID")]
         [NotMapped]
-        public Pharmacy pharmacyDelivered { get; set; }
+        public Pharmacy pharmacyTarget { get; set; }
 
         public int? pledgeID { get; set; }
 
@@ -51,8 +61,6 @@ namespace PharmacyApi.Models
         //public Pledge Pledge { get; set; }
 
         public List<OrderDetail> orderDetailList { get; set; }
-
-
 
     }
 

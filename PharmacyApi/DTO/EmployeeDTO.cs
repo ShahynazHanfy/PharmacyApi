@@ -14,7 +14,7 @@ namespace PharmacyApi.DTO
         public string Email { get; set; }
 
         public string pharmacyName { get; set; }
-        public int pharmacyID { get; set; }
+        public int pharmacyLoggedInID { get; set; }
 
     }
 }
