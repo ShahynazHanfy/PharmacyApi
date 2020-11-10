@@ -33,15 +33,15 @@ namespace PharmacyApi.Controllers
             var lstOrderDetails = _context.OrderDetails.ToList();
             var lstAllOrders = (from ordr in lstOrders
                                 join detail in lstOrderDetails on ordr.ID equals detail.OrderId
-                                where ordr.pharmacyLoggedInID == pharmacyId
-                              
+                                where ordr.pharmacyTargetID == pharmacyId 
                                 select new OrderVM
                                 {
                                     OrderId = ordr.ID,
-                                    ListDetails = (List<OrderDetailVM>)ordr.orderDetailList.Select(item => new OrderDetailVM
+                                    ListDetails = (List<OrderDetailVM>)ordr.orderDetailList.Where(a => a.OrderId == ordr.ID).Select(item => new OrderDetailVM
                                     {
                                       //  SupplierName = ordr.Supplier.Name,
-                                        DrugName = _context.Drug.Where(a=>a.ID == detail.drugID).FirstOrDefault().TradeName
+                                        DrugName = _context.Drug.Where(a=>a.ID == item.drugID).FirstOrDefault().TradeName
+
                                     }).ToList()
 
                                 }).GroupBy(a=>a.OrderId).ToList();
@@ -105,49 +105,35 @@ namespace PharmacyApi.Controllers
         [HttpPost]
         public  IActionResult PostOrder(Order order)
         {
-            //order.pledgeID = 2;
-            //order.supplierID = 1;
-            //order.pharmacyID = 1;
-            var supplierID = _context.SaveChanges();
-           // Supplier supplier = new Supplier();
-           // order.supplierID = supplier.ID;
-
             _context.Order.Add(order);
+
             if (order.supplierID == 0)
             {
                 Supplier supplier = new Supplier();
                 order.supplierID = supplier.ID;
 
             }
-            //else if (order. == 0)
-            //{
-            //    Supplier supplier = new Supplier();
-            //    order.supplierID = supplier.ID;
-
-            //}
             else
             {
                 var orderID = _context.SaveChanges();
-
             }
-            //var lstOrders = _context.Order.AsEnumerable();
-            //var orderObj = lstOrders.Max();
-            //int orderID = orderObj.ID;
             var lst = order.orderDetailList.ToList();
-            foreach (var item in lst)
-            {
-                OrderDetail orderDetails = new OrderDetail();
+            _context.SaveChanges();
 
-                orderDetails.Quentity = item.Quentity;
-                orderDetails.drugID = item.drugID;
-                orderDetails.Exp_Date = item.Exp_Date;
-                orderDetails.Prod_Date = item.Prod_Date;
-                orderDetails.Price = item.Price;
-                orderDetails.OrderId = item.OrderId;
+            //foreach (var item in lst)
+            //{
+            //    OrderDetail orderDetails = new OrderDetail();
 
-                _context.OrderDetails.Add(orderDetails);
-                 _context.SaveChanges();
-            }
+            //    orderDetails.Quentity = item.Quentity;
+            //    orderDetails.drugID = item.drugID;
+            //    orderDetails.Exp_Date = item.Exp_Date;
+            //    orderDetails.Prod_Date = item.Prod_Date;
+            //    orderDetails.Price = item.Price;
+            //    orderDetails.OrderId = item.OrderId;
+
+            //    _context.OrderDetails.Add(orderDetails);
+            //}
+
             return Ok();
         }
 

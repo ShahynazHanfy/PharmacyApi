@@ -24,14 +24,11 @@ namespace PharmacyApi.ViewModel
     {
 
         public int OrderDetailId { get; set; }
-
         public int? drugID { get; set; }
         public int? supplierID { get; set; }
-
         public string SupplierName { get; set; }
         public string DrugName { get; set; }
         public int? Quentity { get; set; }
-
         public decimal? Price { get; set; }
         public DateTime? Prod_Date { get; set; }
         public DateTime? Exp_Date { get; set; }
