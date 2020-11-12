@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PharmacyApi.Migrations
 {
-    public partial class nbv : Migration
+    public partial class mhgerd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -273,11 +273,12 @@ namespace PharmacyApi.Migrations
                     Number = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Comments = table.Column<string>(nullable: true),
+                    PendingStatus = table.Column<bool>(nullable: false),
                     supplierID = table.Column<int>(nullable: true),
                     pharmacySourceID = table.Column<int>(nullable: false),
                     pharmacyLoggedInID = table.Column<int>(nullable: false),
                     pharmacyTargetID = table.Column<int>(nullable: false),
-                    pledgeID = table.Column<int>(nullable: true),
+                    pledgeId = table.Column<int>(nullable: true),
                     PharmacyID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

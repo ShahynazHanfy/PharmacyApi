@@ -331,7 +331,7 @@ namespace PharmacyApi.Controllers
             return File(memory, contentType, Path.GetFileName(path));
         }
 
-      
+
 
         [Route("pledge")]
 

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using PharmacyApi.Authentication;
 using PharmacyApi.Models;
 using PharmacyApi.ViewModel;
+using PharmacyApi.Mappers;
 
 namespace PharmacyApi.Controllers
 {
@@ -21,26 +22,48 @@ namespace PharmacyApi.Controllers
         {
             _context = context;
         }
+        
+        [Route("PutOrderByPharmacyId/{orderId}")]
+        public ActionResult<OrderVM> UpdateOrderPending(int orderId)
+        {
+           var orderObj = _context.Order.Find(orderId);
+            var orderVMObj = orderObj.EditOrderPendingStatus();
+            orderObj.PendingStatus = false;
+            _context.Entry(orderObj).State = EntityState.Modified;
+            _context.SaveChanges();
+            return orderVMObj;
+        }
 
-
-
-        // GET: api/Orders
+           // GET: api/Orders
         [HttpGet]
-        [Route("GetOrderByPharmacyId/{pharmacyId}")]
+        [Route("GetOrderByPharmacySourceId/{pharmacyId}")]
         public ActionResult<IEnumerable<OrderVM>> GetOrderByPharmacyId(int pharmacyId)
         {
             var lstOrders = _context.Order.ToList();
             var lstOrderDetails = _context.OrderDetails.ToList();
-            var lstAllOrders = (from ordr in lstOrders
-                                join detail in lstOrderDetails on ordr.ID equals detail.OrderId
-                                where ordr.pharmacyTargetID == pharmacyId 
+            var lstAllOrders = (from order in lstOrders
+                                join detail in lstOrderDetails on order.ID equals detail.OrderId 
+                                where order.pharmacySourceID == pharmacyId || order.pledgeId !=null
                                 select new OrderVM
                                 {
-                                    OrderId = ordr.ID,
-                                    ListDetails = (List<OrderDetailVM>)ordr.orderDetailList.Where(a => a.OrderId == ordr.ID).Select(item => new OrderDetailVM
+                                    OrderId = order.ID,
+                                    PendingStatus= order.PendingStatus,
+                                    Number = order.Number,
+                                    Comments = order.Comments,
+                                    pledgeId = order.pledgeId,
+                                    pharmacyTargetId= order.pharmacyTargetID,
+                                    supplierID = order.supplierID,
+                                    SupplierName = order.supplierID == null ? "" : _context.Supplier.Where(a => a.ID == order.supplierID).FirstOrDefault().Name,
+
+                                    PledgeName = order.pledgeId == null ? "" : _context.Pledge.Where(a => a.ID == order.pledgeId).FirstOrDefault().Name,
+
+                                    pharmacyTarget = order.pharmacyTargetID == 0 ?  "": _context.Pharmacy.Where(a => a.ID == order.pharmacyTargetID).FirstOrDefault().Name,
+
+                                    ListDetails = (List<OrderDetailVM>)order.orderDetailList.Where(a => a.OrderId == order.ID).Select(item => new OrderDetailVM
                                     {
-                                      //  SupplierName = ordr.Supplier.Name,
-                                        DrugName = _context.Drug.Where(a=>a.ID == item.drugID).FirstOrDefault().TradeName
+                                        DrugName = _context.Drug.Where(a=>a.ID == item.drugID).FirstOrDefault().TradeName,
+                                        Price = _context.OrderDetails.Where(a=>a.Price == item.Price).FirstOrDefault().Price,
+
 
                                     }).ToList()
 
@@ -52,7 +75,42 @@ namespace PharmacyApi.Controllers
             }
             return list;
         }
-    
+
+        [HttpGet]
+        [Route("GetOrderByPharmacyTargetId/{pharmacyId}")]
+        public ActionResult<IEnumerable<OrderVM>> GetOrderByPharmacyTargetId(int pharmacyId)
+        {
+            var lstOrders = _context.Order.ToList();
+            var lstOrderDetails = _context.OrderDetails.ToList();
+            var lstAllOrders = (from order in lstOrders
+                                join detail in lstOrderDetails on order.ID equals detail.OrderId
+                                where order.pharmacyTargetID == pharmacyId 
+                                select new OrderVM
+                                {
+                                    OrderId = order.ID,
+                                    PendingStatus = order.PendingStatus,
+                                    Number = order.Number,
+                                    Comments = order.Comments,
+                                    pharmacyTargetId = order.pharmacyTargetID,
+                                    pharmacySource = _context.Pharmacy.Where(a => a.ID == order.pharmacySourceID).FirstOrDefault().Name,
+
+                                    ListDetails = (List<OrderDetailVM>)order.orderDetailList.Where(a => a.OrderId == order.ID).Select(item => new OrderDetailVM
+                                    {
+                                        //  SupplierName = ordr.Supplier.Name,
+                                        DrugName = _context.Drug.Where(a => a.ID == item.drugID).FirstOrDefault().TradeName,
+                                        Price = _context.OrderDetails.Where(a => a.Price == item.Price).FirstOrDefault().Price,
+
+                                    }).ToList()
+
+                                }).GroupBy(a => a.OrderId).ToList();
+            List<OrderVM> list = new List<OrderVM>();
+            foreach (var item in lstAllOrders)
+            {
+                list.Add(item.FirstOrDefault());
+            }
+            return list;
+        }
+
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
@@ -112,6 +170,12 @@ namespace PharmacyApi.Controllers
                 Supplier supplier = new Supplier();
                 order.supplierID = supplier.ID;
 
+            }
+
+            if (order.pledgeId == 0)
+            {
+                Pledge pledge = new Pledge();
+                order.pledgeId = null;
             }
             else
             {

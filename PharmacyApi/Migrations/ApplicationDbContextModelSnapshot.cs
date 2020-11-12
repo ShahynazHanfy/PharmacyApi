@@ -508,6 +508,9 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
+                    b.Property<bool>("PendingStatus")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("PharmacyID")
                         .HasColumnType("int");
 
@@ -520,7 +523,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("pharmacyTargetID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("pledgeID")
+                    b.Property<int?>("pledgeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("supplierID")
@@ -529,6 +532,8 @@ namespace PharmacyApi.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("PharmacyID");
+
+                    b.HasIndex("pledgeId");
 
                     b.HasIndex("supplierID");
 
@@ -969,6 +974,10 @@ namespace PharmacyApi.Migrations
                     b.HasOne("PharmacyApi.Models.Pharmacy", null)
                         .WithMany("orders")
                         .HasForeignKey("PharmacyID");
+
+                    b.HasOne("PharmacyApi.Models.Pledge", "pledge")
+                        .WithMany()
+                        .HasForeignKey("pledgeId");
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()

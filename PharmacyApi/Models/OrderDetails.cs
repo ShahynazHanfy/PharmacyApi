@@ -11,6 +11,8 @@ namespace PharmacyApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
+        //Drug List Details In each order 
         public int ID { get; set; }
         public int? drugID { get; set; }
         [ForeignKey("drugID")]

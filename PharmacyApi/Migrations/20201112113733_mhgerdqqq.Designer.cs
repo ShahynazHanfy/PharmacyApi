@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201109134303_nbvww")]
-    partial class nbvww
+    [Migration("20201112113733_mhgerdqqq")]
+    partial class mhgerdqqq
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -510,6 +510,9 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
+                    b.Property<bool>("PendingStatus")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("PharmacyID")
                         .HasColumnType("int");
 
@@ -522,7 +525,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("pharmacyTargetID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("pledgeID")
+                    b.Property<int?>("pledgeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("supplierID")
@@ -531,6 +534,8 @@ namespace PharmacyApi.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("PharmacyID");
+
+                    b.HasIndex("pledgeId");
 
                     b.HasIndex("supplierID");
 
@@ -971,6 +976,10 @@ namespace PharmacyApi.Migrations
                     b.HasOne("PharmacyApi.Models.Pharmacy", null)
                         .WithMany("orders")
                         .HasForeignKey("PharmacyID");
+
+                    b.HasOne("PharmacyApi.Models.Pledge", "pledge")
+                        .WithMany()
+                        .HasForeignKey("pledgeId");
 
                     b.HasOne("PharmacyApi.Models.Supplier", "Supplier")
                         .WithMany()

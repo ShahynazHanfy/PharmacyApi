@@ -10,8 +10,8 @@ using PharmacyApi.Authentication;
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201109133659_nbv")]
-    partial class nbv
+    [Migration("20201112113145_mhgerd")]
+    partial class mhgerd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -510,6 +510,9 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
+                    b.Property<bool>("PendingStatus")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("PharmacyID")
                         .HasColumnType("int");
 
@@ -522,7 +525,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("pharmacyTargetID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("pledgeID")
+                    b.Property<int?>("pledgeId")
                         .HasColumnType("int");
 
                     b.Property<int?>("supplierID")

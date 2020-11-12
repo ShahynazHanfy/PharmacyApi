@@ -10,9 +10,17 @@ namespace PharmacyApi.ViewModel
         public int OrderId { get; set; }
         public DateTime? Date { get; set; }
         public int Number { get; set; }
+        public string pharmacySource { get; set; }
+        public string pharmacyTarget { get; set; }
+        public string PledgeName { get; set; }
+        public int pharmacyTargetId { get; set; }
+        public int? pledgeId { get; set; }
+        public int? supplierID { get; set; }
+        public string SupplierName { get; set; }
+        public bool PendingStatus { get; set; }
         public string Description { get; set; }
         public string Comments { get; set; }
-
+      
         public List<OrderDetailVM> ListDetails { get; set; }
 
 
@@ -25,8 +33,6 @@ namespace PharmacyApi.ViewModel
 
         public int OrderDetailId { get; set; }
         public int? drugID { get; set; }
-        public int? supplierID { get; set; }
-        public string SupplierName { get; set; }
         public string DrugName { get; set; }
         public int? Quentity { get; set; }
         public decimal? Price { get; set; }
