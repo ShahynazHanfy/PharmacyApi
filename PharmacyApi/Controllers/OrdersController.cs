@@ -27,10 +27,41 @@ namespace PharmacyApi.Controllers
         public ActionResult<OrderVM> UpdateOrderPending(int orderId)
         {
            var orderObj = _context.Order.Find(orderId);
+
+            var getDetails =_context.OrderDetails.Where(a=>a.OrderId ==orderObj.ID).ToList();
+            foreach (var item in getDetails)
+            {
+                if (orderObj.pharmacySourceID > 0)
+                {
+                    var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault().Quentity;
+                    drugQuantity = drugQuantity - item.QuentityInEachOrder;
+
+                    DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault();
+                    drugDetails.Quentity = drugQuantity;
+                    _context.Entry(drugDetails).State = EntityState.Modified;
+                    _context.SaveChanges();
+                }
+                if (orderObj.pharmacyTargetID > 0)
+                {
+                    var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault().Quentity;
+                    drugQuantity = drugQuantity + item.QuentityInEachOrder;
+
+                    DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault();
+                    drugDetails.Quentity = drugQuantity;
+                    _context.Entry(drugDetails).State = EntityState.Modified;
+                    _context.SaveChanges();
+                }
+
+            }
+
             var orderVMObj = orderObj.EditOrderPendingStatus();
             orderObj.PendingStatus = false;
             _context.Entry(orderObj).State = EntityState.Modified;
             _context.SaveChanges();
+
+
+          
+
             return orderVMObj;
         }
 
@@ -63,6 +94,7 @@ namespace PharmacyApi.Controllers
                                     {
                                         DrugName = _context.Drug.Where(a=>a.ID == item.drugID).FirstOrDefault().TradeName,
                                         Price = _context.OrderDetails.Where(a=>a.Price == item.Price).FirstOrDefault().Price,
+                                        quentityInEachOrder = _context.OrderDetails.Where(a => a.QuentityInEachOrder == item.QuentityInEachOrder).FirstOrDefault().QuentityInEachOrder,
 
 
                                     }).ToList()
@@ -93,12 +125,14 @@ namespace PharmacyApi.Controllers
                                     Comments = order.Comments,
                                     pharmacyTargetId = order.pharmacyTargetID,
                                     pharmacySource = _context.Pharmacy.Where(a => a.ID == order.pharmacySourceID).FirstOrDefault().Name,
+                                    
 
                                     ListDetails = (List<OrderDetailVM>)order.orderDetailList.Where(a => a.OrderId == order.ID).Select(item => new OrderDetailVM
                                     {
                                         //  SupplierName = ordr.Supplier.Name,
                                         DrugName = _context.Drug.Where(a => a.ID == item.drugID).FirstOrDefault().TradeName,
                                         Price = _context.OrderDetails.Where(a => a.Price == item.Price).FirstOrDefault().Price,
+                                        quentityInEachOrder = _context.OrderDetails.Where(a => a.QuentityInEachOrder == item.QuentityInEachOrder).FirstOrDefault().QuentityInEachOrder,
 
                                     }).ToList()
 

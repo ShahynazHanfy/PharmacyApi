@@ -14,10 +14,18 @@ namespace PharmacyApi.Mappers
         {
             var OrderObj = new OrderVM
             {
-
-                PendingStatus = model.PendingStatus
+                           PendingStatus = model.PendingStatus
             };
             return OrderObj;
         }
+
+        //public static OrderVM EditDrugQuantity(this DrugDetails model)
+        //{
+        //    var OrderObj = new OrderVM
+        //    {
+        //        TotalDrugQuantity = model.Quentity
+        //    };
+        //    return OrderObj;
+        //}
     }
 }

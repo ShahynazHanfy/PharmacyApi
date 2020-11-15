@@ -100,6 +100,12 @@ namespace PharmacyApi.Controllers
                     await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
                 await userManager.AddToRoleAsync(user, UserRoles.Admin);
             }
+            if (model.Role == "SuperAdmin")
+            {
+                if (!await roleManager.RoleExistsAsync(UserRoles.SuperAdmin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.SuperAdmin));
+                await userManager.AddToRoleAsync(user, UserRoles.SuperAdmin);
+            }
             else if (model.Role == "User")
             {
                 if (!await roleManager.RoleExistsAsync(UserRoles.User))

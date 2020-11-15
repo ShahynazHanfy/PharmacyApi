@@ -13,6 +13,7 @@ namespace PharmacyApi.ViewModel
         public string pharmacySource { get; set; }
         public string pharmacyTarget { get; set; }
         public string PledgeName { get; set; }
+        public int TotalDrugQuantity { get; set; }
         public int pharmacyTargetId { get; set; }
         public int? pledgeId { get; set; }
         public int? supplierID { get; set; }
@@ -34,7 +35,7 @@ namespace PharmacyApi.ViewModel
         public int OrderDetailId { get; set; }
         public int? drugID { get; set; }
         public string DrugName { get; set; }
-        public int? Quentity { get; set; }
+        public int? quentityInEachOrder { get; set; }
         public decimal? Price { get; set; }
         public DateTime? Prod_Date { get; set; }
         public DateTime? Exp_Date { get; set; }
