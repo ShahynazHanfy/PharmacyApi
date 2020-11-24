@@ -157,6 +157,19 @@ namespace PharmacyApi.Controllers
         [HttpGet]
         [Route("activethera")]
 
+        // GET: api/Drugs/5
+        [HttpGet("theraById/{id}")]
+        public async Task<ActionResult<TheraGroup>> GetTheraById(int id)
+        {
+            var thera = await _context.TheraGroup.FindAsync(id);
+
+            if (thera == null)
+            {
+                return NotFound();
+            }
+
+            return thera;
+        }
         public async Task<ActionResult<IEnumerable<TheraGroup>>> GetActiveThera()
         {
             return await _context.TheraGroup.Where(n=>n.IsActive == true).ToListAsync();
@@ -350,9 +363,6 @@ namespace PharmacyApi.Controllers
             var Suppliers = await _context.Supplier.ToListAsync();
             return Suppliers;
         }
-
-
-
 
 
     }
