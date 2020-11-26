@@ -27,26 +27,39 @@ namespace PharmacyApi.Controllers
         public ActionResult<OrderVM> UpdateOrderPending(int orderId)
         {
            var orderObj = _context.Order.Find(orderId);
-
+           
+            int drugQuantity = 0;
             var getDetails =_context.OrderDetails.Where(a=>a.OrderId ==orderObj.ID).ToList();
             foreach (var item in getDetails)
             {
-                if (orderObj.pharmacySourceID > 0)
-                {
-                    var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault().Quentity;
-                    drugQuantity = drugQuantity - item.QuentityInEachOrder;
 
-                    DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault();
-                    drugDetails.Quentity = drugQuantity;
-                    _context.Entry(drugDetails).State = EntityState.Modified;
-                    _context.SaveChanges();
-                }
                 if (orderObj.pharmacyTargetID > 0)
                 {
-                    var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault().Quentity;
+                    var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID  == a.pharmacyLoggedInID).ToList();
+                    if (druglstDrugs.Count == 0)
+                    {
+                        var drugDetailsObj = new DrugDetails();
+                        drugDetailsObj.drugID = item.drugID;
+                        drugDetailsObj.Quentity = item.QuentityInEachOrder;
+                        _context.DrugDetails.Add(drugDetailsObj);
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        drugQuantity = drugQuantity + item.QuentityInEachOrder;
+                        DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).FirstOrDefault();
+                        drugDetails.Quentity = drugQuantity;
+                        _context.Entry(drugDetails).State = EntityState.Modified;
+                        _context.SaveChanges();
+                    }
+                }
+
+                if (orderObj.pharmacySourceID > 0)
+                {
+                    //var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault().Quentity;
                     drugQuantity = drugQuantity + item.QuentityInEachOrder;
 
-                    DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID).FirstOrDefault();
+                    DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
                     drugDetails.Quentity = drugQuantity;
                     _context.Entry(drugDetails).State = EntityState.Modified;
                     _context.SaveChanges();
@@ -58,9 +71,6 @@ namespace PharmacyApi.Controllers
             orderObj.PendingStatus = false;
             _context.Entry(orderObj).State = EntityState.Modified;
             _context.SaveChanges();
-
-
-          
 
             return orderVMObj;
         }
@@ -95,8 +105,6 @@ namespace PharmacyApi.Controllers
                                         DrugName = _context.Drug.Where(a=>a.ID == item.drugID).FirstOrDefault().TradeName,
                                         Price = _context.OrderDetails.Where(a=>a.Price == item.Price).FirstOrDefault().Price,
                                         quentityInEachOrder = _context.OrderDetails.Where(a => a.QuentityInEachOrder == item.QuentityInEachOrder).FirstOrDefault().QuentityInEachOrder,
-
-
                                     }).ToList()
 
                                 }).GroupBy(a=>a.OrderId).ToList();
@@ -218,19 +226,6 @@ namespace PharmacyApi.Controllers
             var lst = order.orderDetailList.ToList();
             _context.SaveChanges();
 
-            //foreach (var item in lst)
-            //{
-            //    OrderDetail orderDetails = new OrderDetail();
-
-            //    orderDetails.Quentity = item.Quentity;
-            //    orderDetails.drugID = item.drugID;
-            //    orderDetails.Exp_Date = item.Exp_Date;
-            //    orderDetails.Prod_Date = item.Prod_Date;
-            //    orderDetails.Price = item.Price;
-            //    orderDetails.OrderId = item.OrderId;
-
-            //    _context.OrderDetails.Add(orderDetails);
-            //}
 
             return Ok();
         }

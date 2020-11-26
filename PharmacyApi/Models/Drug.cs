@@ -39,7 +39,7 @@ namespace PharmacyApi.Models
         public Country Country { get; set; }
        // public List<DrugDetails> drugDetails { get; set; }
 
-        public DrugDetails drugDetails { get; set; }
+        //public DrugDetails drugDetails { get; set; }
 
     }
 }

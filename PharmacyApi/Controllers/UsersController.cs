@@ -93,6 +93,35 @@ namespace PharmacyApi.Controllers
         {
             return "value";
         }
+        //[HttpGet("{pharmacyName}")]
+        [Route("GetAllUsersByPharmacyName/{pharmacyName}")]
+        public async Task<IEnumerable<UsersWithRolesDTO>>GetAllUsersByPharmacyName(string pharmacyName)
+        {
+            var pharID = _context.Pharmacy.Where(e => e.Name == pharmacyName).FirstOrDefault().ID;
+            List <UsersWithRolesDTO> usersWithRoles = new List<UsersWithRolesDTO>();
+            UsersWithRolesDTO usersWithRolesDTO;
+            var users = userManager.Users.Where(p=>p.pharmacyLoggedInID==pharID).ToList();
+            var roles = roleManager.Roles.ToList();
+            foreach (var User in users)
+            {
+                foreach (var role in roles)
+                {
+                    if (await userManager.IsInRoleAsync(User, role.Name))
+                    {
+                        usersWithRolesDTO = new UsersWithRolesDTO()
+                        {
+                            Email = User.Email,
+                            Role = role.Name,
+                            UserName = User.UserName,
+                        };
+                        usersWithRoles.Add(usersWithRolesDTO);
+                    }
+                }
+            }
+            //List<UsersWithRolesDTO> usersWithRoles = new List<UsersWithRolesDTO>();
+            //UsersWithRolesDTO usersWithRolesDTO;
+            return usersWithRoles;
+        }
 
 
         // PUT api/<UsersController>/5

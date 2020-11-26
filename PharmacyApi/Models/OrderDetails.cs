@@ -14,7 +14,7 @@ namespace PharmacyApi.Models
 
         //Drug List Details In each order 
         public int ID { get; set; }
-        public int? drugID { get; set; }
+        public int drugID { get; set; }
         [ForeignKey("drugID")]
         public Drug drug { get; set; }
 

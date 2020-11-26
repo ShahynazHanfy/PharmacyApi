@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PharmacyApi.Authentication;
 
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201125173052_db")]
+    partial class db
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -561,7 +563,7 @@ namespace PharmacyApi.Migrations
                     b.Property<int>("QuentityInEachOrder")
                         .HasColumnType("int");
 
-                    b.Property<int>("drugID")
+                    b.Property<int?>("drugID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -991,9 +993,7 @@ namespace PharmacyApi.Migrations
 
                     b.HasOne("PharmacyApi.Models.Drug", "drug")
                         .WithMany()
-                        .HasForeignKey("drugID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("drugID");
                 });
 
             modelBuilder.Entity("PharmacyApi.Models.PurchasedItem", b =>
