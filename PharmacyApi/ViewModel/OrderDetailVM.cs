@@ -13,6 +13,9 @@ namespace PharmacyApi.ViewModel
         public string pharmacySource { get; set; }
         public string pharmacyTarget { get; set; }
         public string PledgeName { get; set; }
+        public string PatientName { get; set; }
+        public int PatientId { get; set; }
+        public bool IsDeleted { get; set; }
         public int TotalDrugQuantity { get; set; }
         public int pharmacyTargetId { get; set; }
         public int? pledgeId { get; set; }

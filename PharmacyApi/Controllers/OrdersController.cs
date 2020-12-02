@@ -22,22 +22,74 @@ namespace PharmacyApi.Controllers
         {
             _context = context;
         }
-        
+
+        //[Route("PutOrderByPharmacyId/{orderId}")]
+        //public ActionResult<OrderVM> UpdateOrderPending(int orderId)
+        //{
+        //   var orderObj = _context.Order.Find(orderId);
+
+        //    int drugQuantity = 0;
+        //    var getDetails =_context.OrderDetails.Where(a=>a.OrderId ==orderObj.ID).ToList();
+        //    foreach (var item in getDetails)
+        //    {
+
+        //        if (orderObj.pharmacyTargetID > 0)
+        //        {
+        //            var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID  == a.pharmacyLoggedInID).ToList();
+        //            if (druglstDrugs.Count == 0)
+        //            {
+        //                var drugDetailsObj = new DrugDetails();
+        //                drugDetailsObj.drugID = item.drugID;
+        //                drugDetailsObj.Quentity = item.QuentityInEachOrder;
+        //                _context.DrugDetails.Add(drugDetailsObj);
+        //                _context.SaveChanges();
+        //            }
+        //            else
+        //            {
+        //                drugQuantity = drugQuantity + item.QuentityInEachOrder;
+        //                DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).FirstOrDefault();
+        //                drugDetails.Quentity = drugQuantity;
+        //                _context.Entry(drugDetails).State = EntityState.Modified;
+        //                _context.SaveChanges();
+        //            }
+        //        }
+
+        //        if (orderObj.pharmacySourceID > 0)
+        //        {
+        //            //var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault().Quentity;
+        //            drugQuantity = drugQuantity + item.QuentityInEachOrder;
+
+        //            DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
+        //            drugDetails.Quentity = drugQuantity;
+        //            _context.Entry(drugDetails).State = EntityState.Modified;
+        //            _context.SaveChanges();
+        //        }
+
+        //    }
+        //    var orderVMObj = orderObj.EditOrderPendingStatus();
+        //    orderObj.PendingStatus = false;
+        //    _context.Entry(orderObj).State = EntityState.Modified;
+        //    _context.SaveChanges();
+
+        //    return orderVMObj;
+        //}
+
         [Route("PutOrderByPharmacyId/{orderId}")]
         public ActionResult<OrderVM> UpdateOrderPending(int orderId)
         {
-           var orderObj = _context.Order.Find(orderId);
-           
-            int drugQuantity = 0;
-            var getDetails =_context.OrderDetails.Where(a=>a.OrderId ==orderObj.ID).ToList();
+            var orderObj = _context.Order.Find(orderId);
+            int drugQuantity;
+            var getDetails = _context.OrderDetails.Where(a => a.OrderId == orderObj.ID).ToList();
             foreach (var item in getDetails)
             {
 
                 if (orderObj.pharmacyTargetID > 0)
                 {
-                    var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID  == a.pharmacyLoggedInID).ToList();
+                    var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).ToList();
+                    
                     if (druglstDrugs.Count == 0)
                     {
+                        drugQuantity = druglstDrugs[0].Quentity;
                         var drugDetailsObj = new DrugDetails();
                         drugDetailsObj.drugID = item.drugID;
                         drugDetailsObj.Quentity = item.QuentityInEachOrder;
@@ -46,8 +98,9 @@ namespace PharmacyApi.Controllers
                     }
                     else
                     {
+                        drugQuantity = druglstDrugs[0].Quentity;
                         drugQuantity = drugQuantity + item.QuentityInEachOrder;
-                        DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).FirstOrDefault();
+                        DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
                         drugDetails.Quentity = drugQuantity;
                         _context.Entry(drugDetails).State = EntityState.Modified;
                         _context.SaveChanges();
@@ -56,13 +109,32 @@ namespace PharmacyApi.Controllers
 
                 if (orderObj.pharmacySourceID > 0)
                 {
-                    //var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault().Quentity;
-                    drugQuantity = drugQuantity + item.QuentityInEachOrder;
+                    var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).ToList();
 
-                    DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
-                    drugDetails.Quentity = drugQuantity;
-                    _context.Entry(drugDetails).State = EntityState.Modified;
-                    _context.SaveChanges();
+                    //drugQuantity = drugQuantity - item.QuentityInEachOrder;
+                    //DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
+                    //drugDetails.Quentity = drugQuantity;
+                    //_context.Entry(drugDetails).State = EntityState.Modified;
+                    //_context.SaveChanges();
+
+                    if (druglstDrugs.Count == 0)
+                    {
+                        drugQuantity = druglstDrugs[0].Quentity;
+                        var drugDetailsObj = new DrugDetails();
+                        drugDetailsObj.drugID = item.drugID;
+                        drugDetailsObj.Quentity = item.QuentityInEachOrder;
+                        _context.DrugDetails.Add(drugDetailsObj);
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        drugQuantity = druglstDrugs[0].Quentity;
+                        drugQuantity = drugQuantity - item.QuentityInEachOrder;
+                        DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).FirstOrDefault();
+                        drugDetails.Quentity = drugQuantity;
+                        _context.Entry(drugDetails).State = EntityState.Modified;
+                        _context.SaveChanges();
+                    }
                 }
 
             }
@@ -75,7 +147,7 @@ namespace PharmacyApi.Controllers
             return orderVMObj;
         }
 
-           // GET: api/Orders
+        // GET: api/Orders
         [HttpGet]
         [Route("GetOrderByPharmacySourceId/{pharmacyId}")]
         public ActionResult<IEnumerable<OrderVM>> GetOrderByPharmacyId(int pharmacyId)
@@ -95,6 +167,9 @@ namespace PharmacyApi.Controllers
                                     pharmacyTargetId= order.pharmacyTargetID,
                                     supplierID = order.supplierID,
                                     SupplierName = order.supplierID == null ? "" : _context.Supplier.Where(a => a.ID == order.supplierID).FirstOrDefault().Name,
+                                    IsDeleted= order.IsDeleted,
+                                    PatientName = order.patientId == null ? "" : _context.Patients.Where(a => a.ID == order.patientId).FirstOrDefault().Name,
+
 
                                     PledgeName = order.pledgeId == null ? "" : _context.Pledge.Where(a => a.ID == order.pledgeId).FirstOrDefault().Name,
 
@@ -219,6 +294,11 @@ namespace PharmacyApi.Controllers
                 Pledge pledge = new Pledge();
                 order.pledgeId = null;
             }
+            if (order.patientId == 0)
+            {
+                Patient pledge = new Patient();
+                order.patientId = null;
+            }
             else
             {
                 var orderID = _context.SaveChanges();
@@ -228,6 +308,19 @@ namespace PharmacyApi.Controllers
 
 
             return Ok();
+        }
+
+        [HttpPut("{id}")]
+        [Route("DeleteOrder/{orderId}")]
+        public async Task<IActionResult> OrderSoftDelete(int orderId)
+        {
+            var order = new Order();
+                order.ID = orderId;
+                order.IsDeleted = true;
+                _context.Entry(order).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         // DELETE: api/Orders/5

@@ -88,45 +88,7 @@ namespace PharmacyApi.Controllers
 
             return CreatedAtAction("GetDrug", new { id = Drug.ID }, Drug);
         }
-        // POST: api/Drugs
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-
-      //  [HttpPost]
-        //public async Task<ActionResult<Drug>> PostDrug(Drug drug)
-        //{
-            
-        //        _context.Drug.Add(drug);
-        //    var drugID = await _context.SaveChangesAsync();
-         
-        //        //var lst = drug.drugDetails.ToList();
-
-        //        //foreach (var item in lst)
-        //        //{
-        //            DrugDetails drugDetails = new DrugDetails();
-        //            drugDetails.Exp_Date = drug.drugDetails.Exp_Date;
-        //            drugDetails.Code = drug.drugDetails.Code;
-        //            drugDetails.Prod_Date = drug.drugDetails.Prod_Date;
-        //            drugDetails.BarCode = drug.drugDetails.BarCode;
-        //            drugDetails.Quentity = drug.drugDetails.Quentity;
-        //            drugDetails.ReOrderLevel = drug.drugDetails.ReOrderLevel;
-        //            drugDetails.Size = drug.drugDetails.Size;
-        //            drugDetails.Strength = drug.drugDetails.Strength;
-        //            drugDetails.Pack = drug.drugDetails.Pack;
-        //            drugDetails.License = drug.drugDetails.License;
-        //            drugDetails.IsActive = drug.drugDetails.IsActive;
-        //            drugDetails.Price = drug.drugDetails.Price;
-        //            drugDetails.IsChecked = drug.drugDetails.IsChecked;
-        //            drugDetails.drugID = drugID;
-        //            drugDetails.pharmacyLoggedInID = drug.drugDetails.pharmacyLoggedInID;
-
-        //            _context.DrugDetails.Add(drugDetails);
-        //           await _context.SaveChangesAsync();
-        //       // }
-        //        return Ok();
-            
-        //}
-
+        
         // DELETE: api/Drugs/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Drug>> DeleteDrug(int id)
@@ -155,8 +117,7 @@ namespace PharmacyApi.Controllers
         {
             return await _context.TheraGroup.ToListAsync();
         }
-        [HttpGet]
-        [Route("activethera")]
+       
 
         // GET: api/Drugs/5
         [HttpGet("theraById/{id}")]
@@ -171,6 +132,8 @@ namespace PharmacyApi.Controllers
 
             return thera;
         }
+        [HttpGet]
+        [Route("activethera")]
         public async Task<ActionResult<IEnumerable<TheraGroup>>> GetActiveThera()
         {
             return await _context.TheraGroup.Where(n=>n.IsActive == true).ToListAsync();
@@ -363,6 +326,14 @@ namespace PharmacyApi.Controllers
         {
             var Suppliers = await _context.Supplier.ToListAsync();
             return Suppliers;
+        }
+        [Route("Patient")]
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Patient>>> GetPatientss()
+        {
+            var Patients = await _context.Patients.ToListAsync();
+            return Patients;
         }
 
 

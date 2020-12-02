@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PharmacyApi.Authentication;
 
 namespace PharmacyApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201129153631_tq")]
+    partial class tq
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -504,9 +506,6 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
@@ -514,9 +513,6 @@ namespace PharmacyApi.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int?>("PharmacyID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("patientId")
                         .HasColumnType("int");
 
                     b.Property<int>("pharmacyLoggedInID")
@@ -537,8 +533,6 @@ namespace PharmacyApi.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("PharmacyID");
-
-                    b.HasIndex("patientId");
 
                     b.HasIndex("pledgeId");
 
@@ -1002,10 +996,6 @@ namespace PharmacyApi.Migrations
                     b.HasOne("PharmacyApi.Models.Pharmacy", null)
                         .WithMany("orders")
                         .HasForeignKey("PharmacyID");
-
-                    b.HasOne("PharmacyApi.Models.Patient", "patient")
-                        .WithMany()
-                        .HasForeignKey("patientId");
 
                     b.HasOne("PharmacyApi.Models.Pledge", "pledge")
                         .WithMany()

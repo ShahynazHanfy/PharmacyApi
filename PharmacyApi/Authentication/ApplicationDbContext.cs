@@ -44,6 +44,8 @@ namespace PharmacyApi.Authentication
         public virtual DbSet<TheraSubGroup> TheraSubGroup { get; set; }
         public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<Pledge> Pledge { get; set; }
+        public virtual DbSet<Patient> Patients { get; set; }
+
 
 
 

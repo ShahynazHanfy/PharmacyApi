@@ -52,10 +52,10 @@ namespace PharmacyApi.Controllers
                                 Quentity = details.Quentity,
                                 ReOrderLevel = details.ReOrderLevel,
                                 Size = details.Size,
+                                drugID = details.drugID,
                             }).ToList();
             return lstDrugs;
 
-            //return await _context.DrugDetails.ToListAsync();
         }
     
         // GET: api/DrugDetails/5
@@ -68,7 +68,6 @@ namespace PharmacyApi.Controllers
             {
                 return NotFound();
             }
-
             return drugDetails;
         }
 
@@ -136,5 +135,7 @@ namespace PharmacyApi.Controllers
         {
             return _context.DrugDetails.Any(e => e.ID == id);
         }
+
+
     }
 }

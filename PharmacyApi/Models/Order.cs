@@ -26,6 +26,7 @@ namespace PharmacyApi.Models
         public int Number { get; set; }
         public string Description { get; set; }
         public string Comments { get; set; }
+        public bool IsDeleted { get; set; }
         public bool PendingStatus { get; set; }
         public int? supplierID { get; set; }
         [ForeignKey("supplierID")]
@@ -51,6 +52,10 @@ namespace PharmacyApi.Models
         public int? pledgeId { get; set; }
         [ForeignKey("pledgeId")]
         public Pledge pledge { get; set; }
+
+        public int? patientId { get; set; }
+        [ForeignKey("patientId")]
+        public Patient patient { get; set; }
 
         public List<OrderDetail> orderDetailList { get; set; }
 
