@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PharmacyApi.Migrations
 {
-    public partial class mhgerd : Migration
+    public partial class ius : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,6 +85,21 @@ namespace PharmacyApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Patients",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Telephone = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Patients", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Pharmacy",
                 columns: table => new
                 {
@@ -95,6 +110,7 @@ namespace PharmacyApi.Migrations
                     telephone = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),
+                    PharmacyType = table.Column<string>(nullable: true),
                     location = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -273,12 +289,14 @@ namespace PharmacyApi.Migrations
                     Number = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Comments = table.Column<string>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false),
                     PendingStatus = table.Column<bool>(nullable: false),
                     supplierID = table.Column<int>(nullable: true),
                     pharmacySourceID = table.Column<int>(nullable: false),
                     pharmacyLoggedInID = table.Column<int>(nullable: false),
                     pharmacyTargetID = table.Column<int>(nullable: false),
                     pledgeId = table.Column<int>(nullable: true),
+                    patientId = table.Column<int>(nullable: true),
                     PharmacyID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -288,6 +306,18 @@ namespace PharmacyApi.Migrations
                         name: "FK_Order_Pharmacy_PharmacyID",
                         column: x => x.PharmacyID,
                         principalTable: "Pharmacy",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Order_Patients_patientId",
+                        column: x => x.patientId,
+                        principalTable: "Patients",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Order_Pledge_pledgeId",
+                        column: x => x.pledgeId,
+                        principalTable: "Pledge",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -567,9 +597,9 @@ namespace PharmacyApi.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    drugID = table.Column<int>(nullable: true),
+                    drugID = table.Column<int>(nullable: false),
                     OrderId = table.Column<int>(nullable: true),
-                    Quentity = table.Column<int>(nullable: false),
+                    QuentityInEachOrder = table.Column<int>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Prod_Date = table.Column<DateTime>(nullable: false),
                     Exp_Date = table.Column<DateTime>(nullable: false)
@@ -588,7 +618,7 @@ namespace PharmacyApi.Migrations
                         column: x => x.drugID,
                         principalTable: "Drug",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -703,8 +733,7 @@ namespace PharmacyApi.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_DrugDetails_drugID",
                 table: "DrugDetails",
-                column: "drugID",
-                unique: true);
+                column: "drugID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DrugDetails_pharmacyLoggedInID",
@@ -725,6 +754,16 @@ namespace PharmacyApi.Migrations
                 name: "IX_Order_PharmacyID",
                 table: "Order",
                 column: "PharmacyID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Order_patientId",
+                table: "Order",
+                column: "patientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Order_pledgeId",
+                table: "Order",
+                column: "pledgeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_supplierID",
@@ -797,9 +836,6 @@ namespace PharmacyApi.Migrations
                 name: "OrderDetails");
 
             migrationBuilder.DropTable(
-                name: "Pledge");
-
-            migrationBuilder.DropTable(
                 name: "PurchasedItem");
 
             migrationBuilder.DropTable(
@@ -840,6 +876,12 @@ namespace PharmacyApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pharmacy");
+
+            migrationBuilder.DropTable(
+                name: "Patients");
+
+            migrationBuilder.DropTable(
+                name: "Pledge");
 
             migrationBuilder.DropTable(
                 name: "Supplier");

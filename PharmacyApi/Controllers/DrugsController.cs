@@ -327,6 +327,13 @@ namespace PharmacyApi.Controllers
             var Suppliers = await _context.Supplier.ToListAsync();
             return Suppliers;
         }
+        [HttpGet]
+        [Route("getSupplierById/{Suppid}")]
+        public async Task<ActionResult<Supplier>> GetSupplier(int Suppid)
+        {
+            var supplier = await _context.Supplier.FindAsync(Suppid);
+            return supplier;
+        }
         [Route("Patient")]
 
         [HttpGet]
@@ -334,6 +341,13 @@ namespace PharmacyApi.Controllers
         {
             var Patients = await _context.Patients.ToListAsync();
             return Patients;
+        }
+        [HttpGet]
+        [Route("getPatientById/{patientid}")]
+        public async Task<ActionResult<Patient>> GetPatient(int patientid)
+        {
+            var patient = await _context.Patients.FindAsync(patientid);
+            return patient;
         }
 
 

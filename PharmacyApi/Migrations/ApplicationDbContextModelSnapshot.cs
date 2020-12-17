@@ -621,6 +621,9 @@ namespace PharmacyApi.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PharmacyType")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("location")
                         .HasColumnType("nvarchar(max)");
 

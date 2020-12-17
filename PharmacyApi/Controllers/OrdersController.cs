@@ -23,56 +23,12 @@ namespace PharmacyApi.Controllers
             _context = context;
         }
 
-        //[Route("PutOrderByPharmacyId/{orderId}")]
-        //public ActionResult<OrderVM> UpdateOrderPending(int orderId)
-        //{
-        //   var orderObj = _context.Order.Find(orderId);
-
-        //    int drugQuantity = 0;
-        //    var getDetails =_context.OrderDetails.Where(a=>a.OrderId ==orderObj.ID).ToList();
-        //    foreach (var item in getDetails)
-        //    {
-
-        //        if (orderObj.pharmacyTargetID > 0)
-        //        {
-        //            var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID  == a.pharmacyLoggedInID).ToList();
-        //            if (druglstDrugs.Count == 0)
-        //            {
-        //                var drugDetailsObj = new DrugDetails();
-        //                drugDetailsObj.drugID = item.drugID;
-        //                drugDetailsObj.Quentity = item.QuentityInEachOrder;
-        //                _context.DrugDetails.Add(drugDetailsObj);
-        //                _context.SaveChanges();
-        //            }
-        //            else
-        //            {
-        //                drugQuantity = drugQuantity + item.QuentityInEachOrder;
-        //                DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).FirstOrDefault();
-        //                drugDetails.Quentity = drugQuantity;
-        //                _context.Entry(drugDetails).State = EntityState.Modified;
-        //                _context.SaveChanges();
-        //            }
-        //        }
-
-        //        if (orderObj.pharmacySourceID > 0)
-        //        {
-        //            //var drugQuantity = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault().Quentity;
-        //            drugQuantity = drugQuantity + item.QuentityInEachOrder;
-
-        //            DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
-        //            drugDetails.Quentity = drugQuantity;
-        //            _context.Entry(drugDetails).State = EntityState.Modified;
-        //            _context.SaveChanges();
-        //        }
-
-        //    }
-        //    var orderVMObj = orderObj.EditOrderPendingStatus();
-        //    orderObj.PendingStatus = false;
-        //    _context.Entry(orderObj).State = EntityState.Modified;
-        //    _context.SaveChanges();
-
-        //    return orderVMObj;
-        //}
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Order>>> GetDrug()
+        {
+            var orders = await _context.Order.ToListAsync();
+            return orders;
+        }
 
         [Route("PutOrderByPharmacyId/{orderId}")]
         public ActionResult<OrderVM> UpdateOrderPending(int orderId)
@@ -110,12 +66,6 @@ namespace PharmacyApi.Controllers
                 if (orderObj.pharmacySourceID > 0)
                 {
                     var druglstDrugs = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacySourceID == a.pharmacyLoggedInID).ToList();
-
-                    //drugQuantity = drugQuantity - item.QuentityInEachOrder;
-                    //DrugDetails drugDetails = _context.DrugDetails.Where(a => a.drugID == item.drugID && orderObj.pharmacyTargetID == a.pharmacyLoggedInID).FirstOrDefault();
-                    //drugDetails.Quentity = drugQuantity;
-                    //_context.Entry(drugDetails).State = EntityState.Modified;
-                    //_context.SaveChanges();
 
                     if (druglstDrugs.Count == 0)
                     {
@@ -169,8 +119,6 @@ namespace PharmacyApi.Controllers
                                     SupplierName = order.supplierID == null ? "" : _context.Supplier.Where(a => a.ID == order.supplierID).FirstOrDefault().Name,
                                     IsDeleted= order.IsDeleted,
                                     PatientName = order.patientId == null ? "" : _context.Patients.Where(a => a.ID == order.patientId).FirstOrDefault().Name,
-
-
                                     PledgeName = order.pledgeId == null ? "" : _context.Pledge.Where(a => a.ID == order.pledgeId).FirstOrDefault().Name,
 
                                     pharmacyTarget = order.pharmacyTargetID == 0 ?  "": _context.Pharmacy.Where(a => a.ID == order.pharmacyTargetID).FirstOrDefault().Name,
@@ -204,12 +152,11 @@ namespace PharmacyApi.Controllers
                                 {
                                     OrderId = order.ID,
                                     PendingStatus = order.PendingStatus,
+                                    IsDeleted = order.IsDeleted,
                                     Number = order.Number,
                                     Comments = order.Comments,
                                     pharmacyTargetId = order.pharmacyTargetID,
                                     pharmacySource = _context.Pharmacy.Where(a => a.ID == order.pharmacySourceID).FirstOrDefault().Name,
-                                    
-
                                     ListDetails = (List<OrderDetailVM>)order.orderDetailList.Where(a => a.OrderId == order.ID).Select(item => new OrderDetailVM
                                     {
                                         //  SupplierName = ordr.Supplier.Name,
@@ -310,14 +257,13 @@ namespace PharmacyApi.Controllers
             return Ok();
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         [Route("DeleteOrder/{orderId}")]
         public async Task<IActionResult> OrderSoftDelete(int orderId)
         {
-            var order = new Order();
-                order.ID = orderId;
-                order.IsDeleted = true;
-                _context.Entry(order).State = EntityState.Modified;
+          var ord = _context.Order.Where(a => a.ID == orderId).ToList();
+            ord[0].IsDeleted = true;
+            _context.Entry(ord[0]).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
             return NoContent();

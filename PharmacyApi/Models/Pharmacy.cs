@@ -20,6 +20,7 @@ namespace PharmacyApi.Models
         public string Email { get; set; }
         public bool IsActive { get; set; }
 
+        public string PharmacyType { get; set; }
         public string location { get; set; }
         public List<Order> orders { get; set; }///////////////////////////
         public List<Employee> employees { get; set; }///////////////////////////
